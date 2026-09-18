@@ -1,0 +1,64 @@
+---
+const concerns = [
+  {
+    label: "Scale",
+    question: "It works for a hundred users. What happens at a hundred thousand?",
+    body: "Generated code optimises for working, not for holding. The N+1 query, the unindexed lookup, the in-memory session store — none of it complains until the traffic arrives.",
+  },
+  {
+    label: "Security",
+    question: "Automated attacks find new endpoints in hours, not weeks.",
+    body: "Your app is scanned continuously from the moment it has a public DNS record. Leaked keys, permissive CORS, unauthenticated internal routes — we find them before someone else does.",
+  },
+  {
+    label: "Viability",
+    question: "Is the architecture you've committed to the one that gets you to year three?",
+    body: "Some decisions are cheap to reverse and some are load-bearing. Knowing which is which — before you raise, hire or migrate — is the difference between a refactor and a rewrite.",
+  },
+];
+---
+
+<section class="bg-cornsilk py-28 lg:py-36">
+  <div class="mx-auto max-w-6xl px-6 lg:px-8">
+    <div class="reveal max-w-2xl">
+      <span class="eyebrow text-copperwood">The uncertainty</span>
+      <h2
+        class="mt-5 font-display text-[clamp(2rem,4.2vw,3.15rem)] font-normal leading-[1.12] tracking-[-0.015em] text-bark"
+        style="font-variation-settings: 'opsz' 100;"
+      >
+        AI created enormous opportunity. It created enormous uncertainty with it.
+      </h2>
+      <p class="mt-6 text-lg leading-relaxed text-bark-soft">
+        The tooling got faster than the judgement required to use it safely.
+        These are the questions that decide whether what you've built becomes a
+        business or a liability.
+      </p>
+    </div>
+
+    <div class="mt-16 grid gap-px overflow-hidden rounded-sm bg-olive-leaf/20 md:grid-cols-3">
+      {
+        concerns.map((item, i) => (
+          <article
+            class="reveal group bg-cornsilk p-8 transition-colors duration-300 hover:bg-[#f7f2d4] lg:p-10"
+            data-delay={i * 90}
+          >
+            <span class="eyebrow text-olive-leaf">{item.label}</span>
+            <h3
+              class="mt-5 font-display text-xl font-medium leading-snug text-bark"
+              style="font-variation-settings: 'opsz' 40;"
+            >
+              {item.question}
+            </h3>
+            <p class="mt-4 text-[0.95rem] leading-relaxed text-bark-soft">
+              {item.body}
+            </p>
+            <div
+              class="mt-7 h-px w-10 bg-sunlit-clay transition-all duration-300 group-hover:w-20"
+              aria-hidden="true"
+            />
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

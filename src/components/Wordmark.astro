@@ -1,0 +1,38 @@
+---
+interface Props {
+  tone?: "light" | "dark";
+  class?: string;
+}
+
+const { tone = "light", class: className = "" } = Astro.props;
+
+// "light" = light text, for dark backgrounds.
+const text = tone === "light" ? "text-cornsilk" : "text-bark";
+const mark = tone === "light" ? "text-sunlit-clay" : "text-copperwood";
+---
+
+<span class={`inline-flex items-center gap-2.5 ${className}`}>
+  <svg
+    viewBox="0 0 24 24"
+    class={`h-6 w-6 shrink-0 ${mark}`}
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    aria-hidden="true"
+  >
+    <!-- Stylised oak: trunk with branching canopy -->
+    <path d="M12 22V13" />
+    <path d="M12 13 7.5 9.5" />
+    <path d="M12 13l4.5-3.5" />
+    <path
+      d="M12 2.5c2.6 0 4.2 1.7 4.4 3.6 1.7.3 2.8 1.6 2.8 3.1 0 1.8-1.5 3.2-3.4 3.2H8.2c-1.9 0-3.4-1.4-3.4-3.2 0-1.5 1.1-2.8 2.8-3.1C7.8 4.2 9.4 2.5 12 2.5Z"
+    />
+  </svg>
+  <span
+    class={`font-display text-lg font-medium tracking-tight ${text}`}
+    style="font-variation-settings: 'opsz' 40;"
+  >
+    Robur Ignis
+  </span>
+</span>

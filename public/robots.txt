@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://roburignis.com/sitemap-index.xml

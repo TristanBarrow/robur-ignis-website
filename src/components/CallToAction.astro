@@ -1,0 +1,42 @@
+---
+import { site } from "../config";
+---
+
+<section id="book" class="scroll-mt-20 bg-copperwood py-24 lg:py-32">
+  <div class="mx-auto max-w-3xl px-6 text-center lg:px-8">
+    <div class="reveal">
+      <span class="eyebrow text-cornsilk/70">Robur Ignis</span>
+      <h2
+        class="mt-5 font-display text-[clamp(2rem,4.5vw,3.4rem)] font-normal leading-[1.1] tracking-[-0.015em] text-cornsilk"
+        style="font-variation-settings: 'opsz' 100;"
+      >
+        Find out what breaks before your customers do.
+      </h2>
+      <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-cornsilk/80">
+        A thirty-minute conversation with a senior engineer. Bring the thing
+        that worries you most.
+      </p>
+
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <!--
+          TODO: point site.calendlyUrl at your Calendly link.
+          To embed inline instead of linking out, drop Calendly's widget script
+          in here and replace this anchor with:
+          <div class="calendly-inline-widget" data-url={site.calendlyUrl}></div>
+        -->
+        <a
+          href={site.calendlyUrl}
+          class="btn bg-black-forest text-cornsilk hover:-translate-y-0.5 hover:bg-bark"
+        >
+          Book a call
+        </a>
+        <a
+          href={`mailto:${site.email}`}
+          class="btn border border-cornsilk/40 text-cornsilk hover:border-cornsilk hover:-translate-y-0.5"
+        >
+          Email us instead
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

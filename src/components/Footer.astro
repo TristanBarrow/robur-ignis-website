@@ -1,0 +1,72 @@
+---
+import Wordmark from "./Wordmark.astro";
+import { nav, site } from "../config";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-black-forest py-14">
+  <div class="mx-auto max-w-6xl px-6 lg:px-8">
+    <div
+      class="flex flex-col gap-8 border-b border-cornsilk/10 pb-10 md:flex-row md:items-start md:justify-between"
+    >
+      <div class="max-w-sm">
+        <Wordmark tone="light" />
+        <p class="mt-4 text-sm leading-relaxed text-cornsilk/50">
+          {site.tagline} Senior engineering for software built at the speed of AI.
+        </p>
+      </div>
+
+      <div class="flex gap-16">
+        <nav aria-label="Footer">
+          <p class="eyebrow text-cornsilk/35">Site</p>
+          <ul class="mt-4 space-y-2.5">
+            {
+              nav.map((item) => (
+                <li>
+                  <a
+                    href={item.href}
+                    class="text-sm text-cornsilk/60 transition-colors hover:text-sunlit-clay"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+
+        <div>
+          <p class="eyebrow text-cornsilk/35">Contact</p>
+          <ul class="mt-4 space-y-2.5">
+            <li>
+              <a
+                href={`mailto:${site.email}`}
+                class="text-sm text-cornsilk/60 transition-colors hover:text-sunlit-clay"
+              >
+                {site.email}
+              </a>
+            </li>
+            <li>
+              <a
+                href={site.calendlyUrl}
+                class="text-sm text-cornsilk/60 transition-colors hover:text-sunlit-clay"
+              >
+                Book a call
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="mt-8 flex flex-col gap-2 text-xs text-cornsilk/35 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>© {year} {site.name}. All rights reserved.</p>
+      <p class="font-display italic" style="font-variation-settings: 'opsz' 20;">
+        Robur — oak. Ignis — fire.
+      </p>
+    </div>
+  </div>
+</footer>
