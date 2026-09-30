@@ -10,7 +10,8 @@ export const site = {
 
   url: "https://robur-ignis.com",
 
-  email: "hello@robur-ignis.com",
+  // TODO: switch to hello@robur-ignis.com once that mailbox exists.
+  email: "tbfox32@gmail.com",
 
   // TODO: replace with your real Calendly scheduling link.
   // e.g. "https://calendly.com/robur-ignis/intro-call"
