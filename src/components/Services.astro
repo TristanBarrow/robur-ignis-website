@@ -1,156 +1,138 @@
 ---
 import { site } from "../config";
 
-const tiers = [
+// One offer while the practice is new: paid coaching sessions,
+// each preceded by a free intro call to check it's a fit.
+const session = {
+  name: "Coaching session",
+  price: "$200",
+  cadence: "1 hour · one-to-one · video call",
+  summary:
+    "Time with a senior engineer, focused on your code and your question. Bring what you've built, the decision you're stuck on, or the thing that worries you.",
+  topics: [
+    "Security: auth, secrets, exposed data, risky dependencies",
+    "Scale: what will break when real traffic arrives",
+    "Architecture: which decisions are load-bearing, and which are cheap to change",
+    "Code you've written with AI and aren't sure you can trust",
+  ],
+};
+
+const steps = [
   {
-    name: "Technical Review",
-    price: "Fixed price",
-    // TODO: set your real price, e.g. "$2,500"
-    cadence: "One-off · 5 business days",
-    summary:
-      "A senior engineer reads your codebase and infrastructure end to end, then tells you plainly what will break and what to do about it.",
-    includes: [
-      "Security assessment — auth, secrets, data exposure, dependencies",
-      "Scalability review with named bottlenecks and load estimates",
-      "Architecture appraisal: what's load-bearing, what's reversible",
-      "Written report plus a 60-minute walkthrough call",
-    ],
-    cta: "Buy a review",
-    href: site.stripePaymentLink,
-    featured: true,
-    // Stripe hook: swap for a Payment Link, or read this in a checkout handler.
-    priceId: "TODO_STRIPE_PRICE_ID_REVIEW",
+    n: "01",
+    title: "Free intro call",
+    body: "Thirty minutes, no charge. You tell me what you're building and what you need. If I'm not the right person, I'll say so.",
   },
   {
-    name: "Fractional Engineering",
-    price: "Monthly retainer",
-    cadence: "Ongoing · minimum 3 months",
-    summary:
-      "Retained senior capacity. We sit alongside your team — reviewing what ships, unblocking the hard problems, on call when it matters.",
-    includes: [
-      "Named senior engineer, consistent across the engagement",
-      "Code and architecture review on your release cadence",
-      "Incident support and production escalation path",
-      "Hiring and technical strategy input",
-    ],
-    cta: "Discuss a retainer",
-    href: site.calendlyUrl,
-    featured: false,
-    priceId: null,
+    n: "02",
+    title: "A coaching session",
+    body: "If it's a fit, book a one-hour session for $200. We work through your question directly, on your code where it helps.",
   },
   {
-    name: "Full Service",
-    price: "Scoped per engagement",
-    cadence: "Partnership",
-    summary:
-      "We build and run it with you. For when the thing you're building needs to be right the first time and you need the depth on your side of the table.",
-    includes: [
-      "Delivery team assembled for the problem",
-      "Production infrastructure, owned and operated",
-      "Security and compliance groundwork from day one",
-      "Handover and team enablement when you're ready",
-    ],
-    cta: "Start a conversation",
-    href: site.calendlyUrl,
-    featured: false,
-    priceId: null,
+    n: "03",
+    title: "Book again if it helped",
+    body: "No packages and no commitment. Each session stands on its own.",
   },
 ];
 ---
 
-<section id="services" class="scroll-mt-20 bg-black-forest py-28 lg:py-36">
+<section id="services" class="scroll-mt-20 bg-cornsilk py-28 lg:py-36">
   <div class="mx-auto max-w-6xl px-6 lg:px-8">
-    <div class="reveal max-w-2xl">
-      <span class="eyebrow text-sunlit-clay">What we do</span>
-      <h2
-        class="mt-5 font-display text-[clamp(2rem,4.2vw,3.15rem)] font-normal leading-[1.12] tracking-[-0.015em] text-cornsilk"
-        style="font-variation-settings: 'opsz' 100;"
+    <div class="grid gap-14 lg:grid-cols-[1fr_0.9fr] lg:gap-20">
+      <div class="reveal">
+        <span class="eyebrow text-olive-leaf">What I offer</span>
+        <h2
+          class="mt-5 font-display text-[clamp(2rem,4.2vw,3.15rem)] font-normal leading-[1.12] tracking-[-0.015em] text-bark"
+          style="font-variation-settings: 'opsz' 60;"
+        >
+          One-to-one coaching for software built with AI.
+        </h2>
+        <p class="mt-6 text-lg leading-relaxed text-bark-soft">
+          AI makes it fast to build. It doesn't tell you what's fragile. A
+          session gets you a senior engineer's judgement on your specific
+          situation, without a contract or a retainer.
+        </p>
+
+        <ul class="mt-10 space-y-3.5">
+          {session.topics.map((line) => (
+            <li class="flex gap-3">
+              <svg
+                class="mt-1.5 h-3.5 w-3.5 shrink-0 text-olive-leaf"
+                viewBox="0 0 14 14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M2 7.5 5.5 11 12 3.5" />
+              </svg>
+              <span class="text-[0.95rem] leading-relaxed text-bark-soft">{line}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <article
+        class="reveal self-start rounded-sm bg-black-forest p-8 ring-1 ring-sunlit-clay lg:p-10"
+        data-delay="120"
       >
-        Three ways in. Start wherever the risk is.
-      </h2>
-      <p class="mt-6 text-lg leading-relaxed text-cornsilk/65">
-        Most people start with a review because it's fast, fixed-price and
-        answers the question that's actually keeping them up.
-      </p>
+        <h3
+          class="font-display text-2xl font-medium text-cornsilk"
+          style="font-variation-settings: 'opsz' 40;"
+        >
+          {session.name}
+        </h3>
+
+        <p
+          class="mt-4 font-display text-5xl font-normal text-sunlit-clay"
+          style="font-variation-settings: 'opsz' 60;"
+        >
+          {session.price}
+        </p>
+        <p class="mt-2 text-sm text-cornsilk/60">{session.cadence}</p>
+
+        <p class="mt-6 text-[0.95rem] leading-relaxed text-cornsilk/70">
+          {session.summary}
+        </p>
+
+        <a href={site.calendlyUrl} class="btn btn-primary mt-9 w-full">
+          Book a free intro call
+        </a>
+        <p class="mt-4 text-center text-sm text-cornsilk/60">
+          Starts with a free 30-minute intro call.
+        </p>
+      </article>
     </div>
 
-    <div class="mt-16 grid gap-6 lg:grid-cols-3">
-      {
-        tiers.map((tier, i) => (
-          <article
-            class={`reveal flex flex-col rounded-sm p-8 lg:p-9 ${
-              tier.featured
-                ? "bg-cornsilk ring-1 ring-sunlit-clay"
-                : "bg-white/[0.03] ring-1 ring-cornsilk/10"
-            }`}
-            data-delay={i * 90}
-            data-price-id={tier.priceId}
-          >
-            {tier.featured && (
-              <span class="eyebrow mb-5 self-start rounded-sm bg-copperwood px-2.5 py-1 text-cornsilk">
-                Most common
-              </span>
-            )}
-
-            <h3
-              class={`font-display text-2xl font-medium ${tier.featured ? "text-bark" : "text-cornsilk"}`}
-              style="font-variation-settings: 'opsz' 40;"
-            >
-              {tier.name}
-            </h3>
-
-            <div class="mt-3">
-              <p
-                class={`text-sm font-medium ${tier.featured ? "text-copperwood" : "text-sunlit-clay"}`}
-              >
-                {tier.price}
+    <div class="mt-24 border-t border-olive-leaf/20 pt-14">
+      <span class="reveal eyebrow text-olive-leaf">How it works</span>
+      <ol class="mt-8 grid gap-10 md:grid-cols-3 md:gap-8">
+        {
+          steps.map((step, i) => (
+            <li class="reveal" data-delay={i * 90}>
+              <div class="flex items-baseline gap-3">
+                <span
+                  class="font-display text-lg font-medium text-olive-leaf"
+                  style="font-variation-settings: 'opsz' 40;"
+                >
+                  {step.n}
+                </span>
+                <h3
+                  class="font-display text-xl font-medium text-bark"
+                  style="font-variation-settings: 'opsz' 40;"
+                >
+                  {step.title}
+                </h3>
+              </div>
+              <p class="mt-3 text-[0.95rem] leading-relaxed text-bark-soft">
+                {step.body}
               </p>
-              <p
-                class={`mt-0.5 text-sm ${tier.featured ? "text-bark-soft/70" : "text-cornsilk/45"}`}
-              >
-                {tier.cadence}
-              </p>
-            </div>
-
-            <p
-              class={`mt-6 text-[0.95rem] leading-relaxed ${tier.featured ? "text-bark-soft" : "text-cornsilk/65"}`}
-            >
-              {tier.summary}
-            </p>
-
-            <ul class="mt-7 flex-1 space-y-3.5">
-              {tier.includes.map((line) => (
-                <li class="flex gap-3">
-                  <svg
-                    class={`mt-1 h-3.5 w-3.5 shrink-0 ${tier.featured ? "text-copperwood" : "text-sunlit-clay"}`}
-                    viewBox="0 0 14 14"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M2 7.5 5.5 11 12 3.5" />
-                  </svg>
-                  <span
-                    class={`text-[0.9rem] leading-relaxed ${tier.featured ? "text-bark-soft" : "text-cornsilk/60"}`}
-                  >
-                    {line}
-                  </span>
-                </li>
-              ))}
-            </ul>
-
-            <a
-              href={tier.href}
-              class={`btn mt-9 w-full ${tier.featured ? "btn-primary" : "btn-ghost"}`}
-            >
-              {tier.cta}
-            </a>
-          </article>
-        ))
-      }
+            </li>
+          ))
+        }
+      </ol>
     </div>
   </div>
 </section>

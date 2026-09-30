@@ -8,26 +8,20 @@ const { tone = "light", class: className = "" } = Astro.props;
 
 // "light" = light text, for dark backgrounds.
 const text = tone === "light" ? "text-cornsilk" : "text-bark";
-const mark = tone === "light" ? "text-sunlit-clay" : "text-copperwood";
+const mark = tone === "light" ? "text-sunlit-clay" : "text-ember";
 ---
 
 <span class={`inline-flex items-center gap-2.5 ${className}`}>
   <svg
     viewBox="0 0 24 24"
     class={`h-6 w-6 shrink-0 ${mark}`}
-    fill="none"
-    stroke="currentColor"
-    stroke-width="1.5"
-    stroke-linecap="round"
+    fill="currentColor"
     aria-hidden="true"
   >
-    <!-- Stylised oak: trunk with branching canopy -->
-    <path d="M12 22V13" />
-    <path d="M12 13 7.5 9.5" />
-    <path d="M12 13l4.5-3.5" />
-    <path
-      d="M12 2.5c2.6 0 4.2 1.7 4.4 3.6 1.7.3 2.8 1.6 2.8 3.1 0 1.8-1.5 3.2-3.4 3.2H8.2c-1.9 0-3.4-1.4-3.4-3.2 0-1.5 1.1-2.8 2.8-3.1C7.8 4.2 9.4 2.5 12 2.5Z"
-    />
+    <!-- Flame nut: an upturned acorn whose nut is a flame -->
+    <path d="M6.4 12.4C5.7 10.2 6.1 7.8 7.6 5.6C7.9 6.9 8.6 7.7 9.6 8.1C9.4 5.2 10.9 2.8 12.9 0.5C12.3 3.3 14.6 4.8 15.1 7.4C15.8 6.9 16.4 6.2 16.8 5.4C18.3 7.6 18.4 10.2 17.6 12.4Z" />
+    <path d="M4.6 14.8C4.6 19 8 21.4 12 21.4C16 21.4 19.4 19 19.4 14.8C19.4 14 18.8 13.4 18 13.4H6C5.2 13.4 4.6 14 4.6 14.8Z" />
+    <path d="M11.3 21.1C11.3 22.2 11.9 23.2 13.3 23.7L13.8 22.9C12.9 22.5 12.7 21.9 12.7 21.1Z" />
   </svg>
   <span
     class={`font-display text-lg font-medium tracking-tight ${text}`}

@@ -6,7 +6,7 @@
   --color-black-forest: #283618;
   --color-cornsilk: #fefae0;
   --color-sunlit-clay: #dda15e;
-  --color-copperwood: #bc6c25;
+  --color-ember: #b8321f;
 
   /* Supporting neutrals — pure black is harsh against warm cream */
   --color-bark: #1a2110;
@@ -71,14 +71,14 @@
       color 0.25s var(--ease-gentle);
   }
 
-  /* Copperwood is reserved for primary CTAs only — the most saturated
+  /* Ember is reserved for primary CTAs only — the most saturated
      thing on the page, so the eye always finds the ask. */
   .btn-primary {
-    background-color: var(--color-copperwood);
+    background-color: var(--color-ember);
     color: var(--color-cornsilk);
   }
   .btn-primary:hover {
-    background-color: #a55d1f;
+    background-color: #9a2818;
     transform: translateY(-2px);
   }
 
@@ -97,8 +97,8 @@
     color: var(--color-bark);
   }
   .btn-ghost-dark:hover {
-    border-color: var(--color-copperwood);
-    color: var(--color-copperwood);
+    border-color: var(--color-ember);
+    color: var(--color-ember);
     transform: translateY(-2px);
   }
 }

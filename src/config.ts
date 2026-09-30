@@ -6,24 +6,23 @@ export const site = {
   name: "Robur Ignis",
   tagline: "The strength to withstand the fire.",
   description:
-    "Senior engineering for AI-built software. Security, scalability and technical due diligence from engineers who built the infrastructure the internet runs on.",
+    "One-to-one coaching from an engineer with ten years of experience, for people building software with AI. Security, scalability and architecture, in focused one-hour sessions.",
 
-  // TODO: replace with your production domain once DNS is pointed at Namecheap.
-  url: "https://roburignis.com",
+  url: "https://robur-ignis.com",
 
-  email: "hello@roburignis.com",
+  email: "hello@robur-ignis.com",
 
   // TODO: replace with your real Calendly scheduling link.
   // e.g. "https://calendly.com/robur-ignis/intro-call"
   calendlyUrl: "#book",
 
-  // TODO: replace with the live Stripe Payment Link for the fixed-price audit.
+  // TODO: replace with the live Stripe Payment Link for a $200 coaching session
+  // (send it after the free intro call; not linked from the site yet).
   // Create at https://dashboard.stripe.com/payment-links
   stripePaymentLink: "#book",
 };
 
 export const nav = [
-  { label: "Services", href: "#services" },
-  { label: "Approach", href: "#approach" },
+  { label: "Coaching", href: "#services" },
   { label: "About", href: "#about" },
 ];

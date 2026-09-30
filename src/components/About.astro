@@ -1,45 +1,40 @@
 ---
+import { site } from "../config";
+
 // Single-founder framing. No invented team, no placeholder headshot grid —
 // claiming depth you can't name reads worse than owning the scale you are.
 const facts = [
-  { figure: "20+", label: "years building production systems" },
-  { figure: "Senior", label: "engineers only — no juniors on your code" },
-  { figure: "Direct", label: "you work with the person doing the work" },
+  { figure: "10", label: "years building software professionally" },
+  { figure: "1:1", label: "every session is with me, not a junior or a team" },
 ];
 ---
 
-<section id="about" class="scroll-mt-20 bg-cornsilk py-28 lg:py-36">
+<section id="about" class="scroll-mt-20 bg-olive-leaf/10 py-28 lg:py-36">
   <div class="mx-auto max-w-6xl px-6 lg:px-8">
     <div class="grid gap-16 lg:grid-cols-[1fr_0.85fr] lg:gap-24">
       <div class="reveal">
-        <span class="eyebrow text-copperwood">Who we are</span>
+        <span class="eyebrow text-olive-leaf">Who you'll work with</span>
         <h2
           class="mt-5 font-display text-[clamp(2rem,4.2vw,3.15rem)] font-normal leading-[1.12] tracking-[-0.015em] text-bark"
-          style="font-variation-settings: 'opsz' 100;"
+          style="font-variation-settings: 'opsz' 60;"
         >
-          The great oaks of the software industry.
+          Ten years of building software, applied to yours.
         </h2>
 
         <div class="mt-8 space-y-5 text-lg leading-relaxed text-bark-soft">
           <p>
-            {/* TODO: replace with your own bio — years, domains, systems you
-                built, scale you operated at. Specifics beat adjectives here;
-                this paragraph is doing most of the selling on the page. */}
-            Robur Ignis is led by <strong class="font-semibold text-bark">Tristan Barrow</strong>,
-            an engineer who has spent a career building and operating the kind
-            of infrastructure that quietly holds the internet up — the systems
-            that don't get written about because they don't go down.
+            {/* TODO: add one or two concrete specifics — the kinds of systems
+                you've built, languages, industries, a problem you solved.
+                Specifics beat adjectives; this paragraph does the selling. */}
+            I'm <strong class="font-semibold text-bark">Tristan Barrow</strong>,
+            a software engineer with ten years of experience building
+            production software. Robur Ignis is my practice: just me, working
+            directly with the people I coach.
           </p>
           <p>
-            For work that needs more hands, we draw on a network of engineers of
-            the same vintage: people who ran production before it was managed
-            for you, who have carried the pager, and who learned scale and
-            security the expensive way so you don't have to.
-          </p>
-          <p>
-            We are not sceptics about AI. We use it daily. We simply know what
-            it cannot yet be trusted to decide — and that's precisely the ground
-            where businesses are won or lost.
+            I'm not a sceptic about AI. I use it every day. But it can't yet be
+            trusted to make every decision on its own, and knowing which ones
+            need a second look is what I help with.
           </p>
         </div>
 
@@ -48,7 +43,7 @@ const facts = [
             facts.map((f) => (
               <div>
                 <p
-                  class="font-display text-3xl font-medium text-copperwood"
+                  class="font-display text-3xl font-medium text-olive-leaf"
                   style="font-variation-settings: 'opsz' 40;"
                 >
                   {f.figure}
@@ -62,37 +57,45 @@ const facts = [
         </div>
       </div>
 
-      <!-- Pull-quote panel: the brand thesis stated plainly. -->
-      <aside class="reveal" data-delay="120">
-        <figure
-          class="relative h-full overflow-hidden rounded-sm bg-black-forest p-9 lg:p-11"
-        >
+      <!-- Booking panel: the page's single closing ask, beside the person you'd be booking. -->
+      <aside id="book" class="reveal scroll-mt-28 self-start" data-delay="120">
+        <div class="relative overflow-hidden rounded-sm bg-black-forest p-9 lg:p-11">
           <div
             class="pointer-events-none absolute inset-0"
             aria-hidden="true"
-            style="background: radial-gradient(70% 50% at 80% 100%, rgba(221,161,94,0.18) 0%, transparent 70%);"
+            style="background: radial-gradient(70% 50% at 80% 100%, rgba(221,161,94,0.18) 0%, rgba(184,50,31,0.05) 40%, transparent 72%);"
           >
           </div>
 
-          <div class="relative flex h-full flex-col justify-between gap-10">
-            <blockquote
-              class="font-display text-[1.6rem] font-normal leading-[1.35] tracking-[-0.01em] text-cornsilk"
-              style="font-variation-settings: 'opsz' 72;"
+          <div class="relative">
+            <span class="eyebrow text-sunlit-clay">Start here</span>
+            <h2
+              class="mt-5 font-display text-[1.9rem] font-normal leading-[1.2] tracking-[-0.01em] text-cornsilk"
+              style="font-variation-settings: 'opsz' 48;"
             >
-              The oak doesn't fight the fire. It's simply built to still be
-              standing afterwards.
-            </blockquote>
+              Find out what breaks before your customers do.
+            </h2>
+            <p class="mt-5 text-[0.95rem] leading-relaxed text-cornsilk/70">
+              A thirty-minute conversation with a senior engineer. Bring the
+              thing that worries you most.
+            </p>
 
-            <figcaption class="border-t border-cornsilk/15 pt-6">
-              <p class="eyebrow text-sunlit-clay">Our thesis</p>
-              <p class="mt-3 text-[0.95rem] leading-relaxed text-cornsilk/60">
-                Move at the speed AI makes possible. Keep the structural
-                judgement that keeps you solvent when the traffic, the attackers
-                or the auditors arrive.
-              </p>
-            </figcaption>
+            <div class="mt-9 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
+              <!--
+                TODO: point site.calendlyUrl at your Calendly link.
+                To embed inline instead of linking out, drop Calendly's widget script
+                in here and replace this anchor with:
+                <div class="calendly-inline-widget" data-url={site.calendlyUrl}></div>
+              -->
+              <a href={site.calendlyUrl} class="btn btn-primary">Book a call</a>
+              <a href={`mailto:${site.email}`} class="btn btn-ghost">Email instead</a>
+            </div>
+
+            <p class="mt-6 border-t border-cornsilk/15 pt-5 text-sm text-cornsilk/60">
+              Free. No pitch deck.
+            </p>
           </div>
-        </figure>
+        </div>
       </aside>
     </div>
   </div>

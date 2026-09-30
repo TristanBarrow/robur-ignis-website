@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://roburignis.com/sitemap-index.xml
+Sitemap: https://robur-ignis.com/sitemap-index.xml

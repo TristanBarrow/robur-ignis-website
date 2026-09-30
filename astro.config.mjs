@@ -3,10 +3,9 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 
-// Fully static output — deploys to Namecheap cPanel by uploading dist/ to public_html/.
+// Fully static output — deployed to GitHub Pages by .github/workflows/deploy.yml.
 export default defineConfig({
-  // TODO: must match your real domain for canonical URLs and the sitemap.
-  site: "https://roburignis.com",
+  site: "https://robur-ignis.com",
   vite: {
     plugins: [tailwindcss()],
   },
