@@ -3,50 +3,21 @@ import Wordmark from "./Wordmark.astro";
 import { nav, site } from "../config";
 ---
 
-<header
-  id="site-nav"
-  class="fixed inset-x-0 top-0 z-40 transition-all duration-300 ease-out"
-  data-solid="false"
->
-  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 lg:px-8">
+<header class="border-b border-rule">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-5 lg:px-8">
     <a href="#top" class="shrink-0" aria-label={`${site.name} — home`}>
-      <Wordmark tone="light" />
+      <Wordmark />
     </a>
 
-    <nav class="hidden items-center gap-9 md:flex" aria-label="Primary">
+    <nav class="flex items-center gap-6 text-sm sm:gap-8" aria-label="Primary">
       {
         nav.map((item) => (
-          <a
-            href={item.href}
-            class="text-sm text-cornsilk/70 transition-colors hover:text-sunlit-clay"
-          >
+          <a href={item.href} class="hidden text-ink-soft hover:text-ember sm:inline">
             {item.label}
           </a>
         ))
       }
+      <a href={site.calendlyUrl} class="link font-semibold text-ember">Book a call</a>
     </nav>
-
-    <a href={site.calendlyUrl} class="btn btn-primary !px-5 !py-2.5 !text-sm">
-      Book a call
-    </a>
   </div>
 </header>
-
-<script>
-  // Transparent over the hero; solid once scrolled past it.
-  const header = document.getElementById("site-nav");
-
-  const onScroll = () => {
-    if (!header) return;
-    const solid = window.scrollY > 40;
-    if (header.dataset.solid === String(solid)) return;
-    header.dataset.solid = String(solid);
-    header.classList.toggle("bg-black-forest/95", solid);
-    header.classList.toggle("backdrop-blur-sm", solid);
-    header.classList.toggle("shadow-lg", solid);
-    header.classList.toggle("shadow-black-forest/20", solid);
-  };
-
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
-</script>

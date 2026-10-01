@@ -39,13 +39,13 @@ const jsonLd = {
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <meta name="theme-color" content="#283618" />
+    <meta name="theme-color" content="#f3f4ee" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600&display=swap"
     />
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
@@ -53,35 +53,11 @@ const jsonLd = {
   <body>
     <a
       href="#main"
-      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-black-forest focus:px-4 focus:py-2 focus:text-cornsilk"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-ink focus:px-4 focus:py-2 focus:text-paper"
     >
       Skip to content
     </a>
 
     <slot />
-
-    <script>
-      // Staggered scroll reveal. Elements marked .reveal fade and rise once.
-      const items = document.querySelectorAll<HTMLElement>(".reveal");
-
-      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (!entry.isIntersecting) return;
-              const el = entry.target as HTMLElement;
-              const delay = Number(el.dataset.delay ?? 0);
-              setTimeout(() => el.classList.add("is-visible"), delay);
-              observer.unobserve(el);
-            });
-          },
-          { rootMargin: "0px 0px -10% 0px", threshold: 0.1 },
-        );
-
-        items.forEach((el) => observer.observe(el));
-      } else {
-        items.forEach((el) => el.classList.add("is-visible"));
-      }
-    </script>
   </body>
 </html>

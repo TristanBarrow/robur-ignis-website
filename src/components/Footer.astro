@@ -5,29 +5,26 @@ import { nav, site } from "../config";
 const year = new Date().getFullYear();
 ---
 
-<footer class="bg-black-forest py-14">
+<footer class="bg-green-deep py-14 text-paper">
   <div class="mx-auto max-w-6xl px-6 lg:px-8">
     <div
-      class="flex flex-col gap-8 border-b border-cornsilk/10 pb-10 md:flex-row md:items-start md:justify-between"
+      class="flex flex-col gap-10 border-b border-paper/15 pb-10 md:flex-row md:items-start md:justify-between"
     >
       <div class="max-w-sm">
         <Wordmark tone="light" />
-        <p class="mt-4 text-sm leading-relaxed text-cornsilk/65">
-          {site.tagline} Engineering coaching for software built with AI.
+        <p class="mt-4 text-sm leading-relaxed text-paper/80">
+          Engineering coaching for software built with AI.
         </p>
       </div>
 
-      <div class="flex gap-16">
+      <div class="flex gap-16 text-sm">
         <nav aria-label="Footer">
-          <p class="eyebrow text-cornsilk/60">Site</p>
+          <p class="label text-paper/65">Site</p>
           <ul class="mt-4 space-y-2.5">
             {
               nav.map((item) => (
                 <li>
-                  <a
-                    href={item.href}
-                    class="text-sm text-cornsilk/60 transition-colors hover:text-sunlit-clay"
-                  >
+                  <a href={item.href} class="link text-paper/85">
                     {item.label}
                   </a>
                 </li>
@@ -37,36 +34,18 @@ const year = new Date().getFullYear();
         </nav>
 
         <div>
-          <p class="eyebrow text-cornsilk/60">Contact</p>
+          <p class="label text-paper/65">Contact</p>
           <ul class="mt-4 space-y-2.5">
             <li>
-              <a
-                href={`mailto:${site.email}`}
-                class="text-sm text-cornsilk/60 transition-colors hover:text-sunlit-clay"
-              >
-                {site.email}
-              </a>
-            </li>
-            <li>
-              <a
-                href={site.calendlyUrl}
-                class="text-sm text-cornsilk/60 transition-colors hover:text-sunlit-clay"
-              >
-                Book a call
-              </a>
+              <a href={`mailto:${site.email}`} class="link text-paper/85">{site.email}</a>
             </li>
           </ul>
         </div>
       </div>
     </div>
 
-    <div
-      class="mt-8 flex flex-col gap-2 text-xs text-cornsilk/60 sm:flex-row sm:items-center sm:justify-between"
-    >
-      <p>© {year} {site.name}. All rights reserved.</p>
-      <p class="font-display italic" style="font-variation-settings: 'opsz' 20;">
-        Robur — oak. Ignis — fire.
-      </p>
+    <div class="label mt-8 flex flex-col gap-2 text-paper/65 sm:flex-row sm:justify-between">
+      <p>© {year} {site.name}</p>
     </div>
   </div>
 </footer>

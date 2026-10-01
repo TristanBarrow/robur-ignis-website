@@ -1,0 +1,29 @@
+---
+import { site } from "../config";
+---
+
+<!-- Why the practice is called what it is. The motto lives here, explained,
+     rather than as a slogan in the hero. -->
+<section id="name" class="bg-green-deep py-20 text-paper lg:py-28">
+  <div class="mx-auto max-w-6xl px-6 lg:px-8">
+    <p class="label text-paper/65">On the name</p>
+    <p
+      class="mt-6 max-w-4xl font-display text-[clamp(2rem,4.6vw,3.6rem)] italic leading-[1.1] tracking-[-0.015em]"
+    >
+      {site.name}: {site.tagline.charAt(0).toLowerCase() + site.tagline.slice(1)}
+    </p>
+    <div class="mt-10 grid max-w-4xl gap-6 text-lg leading-relaxed text-paper/80 md:grid-cols-2 md:gap-12">
+      <p>
+        <em class="font-display not-italic text-paper">Robur</em> is Latin for
+        oak, the hard timber the Romans also used as their word for strength.
+        It's where the English word <em>robust</em> comes from.{" "}
+        <em class="font-display not-italic text-paper">Ignis</em> is fire.
+      </p>
+      <p>
+        I chose it because it describes the work. Software built quickly has to
+        survive real users, real traffic and people actively trying to break it,
+        and my job is to help yours hold up when that happens.
+      </p>
+    </div>
+  </div>
+</section>

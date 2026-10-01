@@ -1,102 +1,55 @@
 ---
 import { site } from "../config";
-
-// Single-founder framing. No invented team, no placeholder headshot grid —
-// claiming depth you can't name reads worse than owning the scale you are.
-const facts = [
-  { figure: "10", label: "years building software professionally" },
-  { figure: "1:1", label: "every session is with me, not a junior or a team" },
-];
 ---
 
-<section id="about" class="scroll-mt-20 bg-olive-leaf/10 py-28 lg:py-36">
+<section id="about" class="scroll-mt-8 bg-paper-deep pb-16 pt-20 lg:pb-20 lg:pt-28">
   <div class="mx-auto max-w-6xl px-6 lg:px-8">
-    <div class="grid gap-16 lg:grid-cols-[1fr_0.85fr] lg:gap-24">
-      <div class="reveal">
-        <span class="eyebrow text-olive-leaf">Who you'll work with</span>
-        <h2
-          class="mt-5 font-display text-[clamp(2rem,4.2vw,3.15rem)] font-normal leading-[1.12] tracking-[-0.015em] text-bark"
-          style="font-variation-settings: 'opsz' 60;"
-        >
-          Ten years of building software, applied to yours.
-        </h2>
+    <div class="max-w-2xl">
+      <h2
+        class="font-display text-[clamp(1.9rem,3.6vw,2.75rem)] font-medium leading-[1.12] tracking-[-0.015em]"
+      >
+        About me
+      </h2>
 
-        <div class="mt-8 space-y-5 text-lg leading-relaxed text-bark-soft">
-          <p>
-            {/* TODO: add one or two concrete specifics — the kinds of systems
-                you've built, languages, industries, a problem you solved.
-                Specifics beat adjectives; this paragraph does the selling. */}
-            I'm <strong class="font-semibold text-bark">Tristan Barrow</strong>,
-            a software engineer with ten years of experience building
-            production software. Robur Ignis is my practice: just me, working
-            directly with the people I coach.
-          </p>
-          <p>
-            I'm not a sceptic about AI. I use it every day. But it can't yet be
-            trusted to make every decision on its own, and knowing which ones
-            need a second look is what I help with.
-          </p>
-        </div>
-
-        <div class="mt-10 flex flex-wrap gap-x-12 gap-y-6">
-          {
-            facts.map((f) => (
-              <div>
-                <p
-                  class="font-display text-3xl font-medium text-olive-leaf"
-                  style="font-variation-settings: 'opsz' 40;"
-                >
-                  {f.figure}
-                </p>
-                <p class="mt-1 max-w-[13rem] text-sm leading-snug text-bark-soft/80">
-                  {f.label}
-                </p>
-              </div>
-            ))
-          }
-        </div>
+      <div class="mt-8 space-y-5 text-lg leading-relaxed text-ink-soft">
+        <p>
+          {/* TODO: add one or two concrete specifics — the kinds of systems
+              you've built, languages, industries, a problem you solved,
+              where you're based. Specifics beat adjectives. */}
+          I'm Tristan Barrow. I've spent ten years building production software.
+          Robur Ignis is my own practice, so the person on the intro call is the
+          person you'll work with in every session.
+        </p>
+        <p>
+          I use AI tools every day, and they've changed how fast I can build.
+          They're also confidently wrong often enough that someone has to check
+          the decisions that matter, like how users sign in or what happens when
+          two requests arrive at once. Knowing where to look is most of what I
+          teach.
+        </p>
       </div>
+      {/* TODO: add a scan of your real signature here (an SVG or transparent PNG). */}
+    </div>
 
-      <!-- Booking panel: the page's single closing ask, beside the person you'd be booking. -->
-      <aside id="book" class="reveal scroll-mt-28 self-start" data-delay="120">
-        <div class="relative overflow-hidden rounded-sm bg-black-forest p-9 lg:p-11">
-          <div
-            class="pointer-events-none absolute inset-0"
-            aria-hidden="true"
-            style="background: radial-gradient(70% 50% at 80% 100%, rgba(221,161,94,0.18) 0%, rgba(184,50,31,0.05) 40%, transparent 72%);"
-          >
-          </div>
-
-          <div class="relative">
-            <span class="eyebrow text-sunlit-clay">Start here</span>
-            <h2
-              class="mt-5 font-display text-[1.9rem] font-normal leading-[1.2] tracking-[-0.01em] text-cornsilk"
-              style="font-variation-settings: 'opsz' 48;"
-            >
-              Find out what breaks before your customers do.
-            </h2>
-            <p class="mt-5 text-[0.95rem] leading-relaxed text-cornsilk/70">
-              A thirty-minute conversation with a senior engineer. Bring the
-              thing that worries you most.
-            </p>
-
-            <div class="mt-9 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
-              <!--
-                TODO: point site.calendlyUrl at your Calendly link.
-                To embed inline instead of linking out, drop Calendly's widget script
-                in here and replace this anchor with:
-                <div class="calendly-inline-widget" data-url={site.calendlyUrl}></div>
-              -->
-              <a href={site.calendlyUrl} class="btn btn-primary">Book a call</a>
-              <a href={`mailto:${site.email}`} class="btn btn-ghost">Email instead</a>
-            </div>
-
-            <p class="mt-6 border-t border-cornsilk/15 pt-5 text-sm text-cornsilk/60">
-              Free. No pitch deck.
-            </p>
-          </div>
-        </div>
-      </aside>
+    <!-- The page's closing ask, set as a full-width ruled row. -->
+    <div
+      id="book"
+      class="mt-16 flex scroll-mt-8 flex-col gap-6 border-t-2 border-ink pt-8 md:flex-row md:items-center md:justify-between"
+    >
+      <div>
+        <h2 class="font-display text-2xl font-medium">Book a free 30-minute call</h2>
+        <p class="mt-2 text-ink-soft">
+          Tell me what you're building and where you're stuck. Or email{" "}
+          <a href={`mailto:${site.email}`} class="link">{site.email}</a>.
+        </p>
+      </div>
+      <!--
+        TODO: point site.calendlyUrl at your Calendly link.
+        To embed inline instead of linking out, drop Calendly's widget script
+        in here and replace this anchor with:
+        <div class="calendly-inline-widget" data-url={site.calendlyUrl}></div>
+      -->
+      <a href={site.calendlyUrl} class="btn shrink-0">Choose a time</a>
     </div>
   </div>
 </section>

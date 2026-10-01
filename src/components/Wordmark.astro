@@ -4,11 +4,11 @@ interface Props {
   class?: string;
 }
 
-const { tone = "light", class: className = "" } = Astro.props;
+const { tone = "dark", class: className = "" } = Astro.props;
 
 // "light" = light text, for dark backgrounds.
-const text = tone === "light" ? "text-cornsilk" : "text-bark";
-const mark = tone === "light" ? "text-sunlit-clay" : "text-ember";
+const text = tone === "light" ? "text-paper" : "text-ink";
+const mark = "text-ember";
 ---
 
 <span class={`inline-flex items-center gap-2.5 ${className}`}>
@@ -23,10 +23,7 @@ const mark = tone === "light" ? "text-sunlit-clay" : "text-ember";
     <path d="M4.6 14.8C4.6 19 8 21.4 12 21.4C16 21.4 19.4 19 19.4 14.8C19.4 14 18.8 13.4 18 13.4H6C5.2 13.4 4.6 14 4.6 14.8Z" />
     <path d="M11.3 21.1C11.3 22.2 11.9 23.2 13.3 23.7L13.8 22.9C12.9 22.5 12.7 21.9 12.7 21.1Z" />
   </svg>
-  <span
-    class={`font-display text-lg font-medium tracking-tight ${text}`}
-    style="font-variation-settings: 'opsz' 40;"
-  >
+  <span class={`font-display text-lg font-semibold tracking-tight ${text}`}>
     Robur Ignis
   </span>
 </span>

@@ -1,138 +1,66 @@
 ---
-import { site } from "../config";
-
 // One offer while the practice is new: paid coaching sessions,
 // each preceded by a free intro call to check it's a fit.
-const session = {
-  name: "Coaching session",
-  price: "$200",
-  cadence: "1 hour · one-to-one · video call",
-  summary:
-    "Time with a senior engineer, focused on your code and your question. Bring what you've built, the decision you're stuck on, or the thing that worries you.",
-  topics: [
-    "Security: auth, secrets, exposed data, risky dependencies",
-    "Scale: what will break when real traffic arrives",
-    "Architecture: which decisions are load-bearing, and which are cheap to change",
-    "Code you've written with AI and aren't sure you can trust",
-  ],
-};
-
-const steps = [
+const topics = [
   {
-    n: "01",
-    title: "Free intro call",
-    body: "Thirty minutes, no charge. You tell me what you're building and what you need. If I'm not the right person, I'll say so.",
+    term: "Security",
+    detail: "Who can read what, where your keys live, and what your dependencies pull in.",
   },
   {
-    n: "02",
-    title: "A coaching session",
-    body: "If it's a fit, book a one-hour session for $200. We work through your question directly, on your code where it helps.",
+    term: "Scale",
+    detail: "What happens to your database and your bill when traffic goes up tenfold.",
   },
   {
-    n: "03",
-    title: "Book again if it helped",
-    body: "No packages and no commitment. Each session stands on its own.",
+    term: "Architecture",
+    detail: "Which early decisions will be expensive to undo, and which you can leave alone.",
+  },
+  {
+    term: "AI-written code",
+    detail: "Reading code you didn't write line by line, and deciding what to keep.",
   },
 ];
 ---
 
-<section id="services" class="scroll-mt-20 bg-cornsilk py-28 lg:py-36">
+<section id="services" class="scroll-mt-8 border-t border-rule py-20 lg:py-28">
   <div class="mx-auto max-w-6xl px-6 lg:px-8">
-    <div class="grid gap-14 lg:grid-cols-[1fr_0.9fr] lg:gap-20">
-      <div class="reveal">
-        <span class="eyebrow text-olive-leaf">What I offer</span>
-        <h2
-          class="mt-5 font-display text-[clamp(2rem,4.2vw,3.15rem)] font-normal leading-[1.12] tracking-[-0.015em] text-bark"
-          style="font-variation-settings: 'opsz' 60;"
-        >
-          One-to-one coaching for software built with AI.
-        </h2>
-        <p class="mt-6 text-lg leading-relaxed text-bark-soft">
-          AI makes it fast to build. It doesn't tell you what's fragile. A
-          session gets you a senior engineer's judgement on your specific
-          situation, without a contract or a retainer.
-        </p>
-
-        <ul class="mt-10 space-y-3.5">
-          {session.topics.map((line) => (
-            <li class="flex gap-3">
-              <svg
-                class="mt-1.5 h-3.5 w-3.5 shrink-0 text-olive-leaf"
-                viewBox="0 0 14 14"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M2 7.5 5.5 11 12 3.5" />
-              </svg>
-              <span class="text-[0.95rem] leading-relaxed text-bark-soft">{line}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <article
-        class="reveal self-start rounded-sm bg-black-forest p-8 ring-1 ring-sunlit-clay lg:p-10"
-        data-delay="120"
+    <div class="max-w-3xl">
+      <h2
+        class="font-display text-[clamp(1.9rem,3.6vw,2.75rem)] font-medium leading-[1.12] tracking-[-0.015em]"
       >
-        <h3
-          class="font-display text-2xl font-medium text-cornsilk"
-          style="font-variation-settings: 'opsz' 40;"
-        >
-          {session.name}
-        </h3>
-
-        <p
-          class="mt-4 font-display text-5xl font-normal text-sunlit-clay"
-          style="font-variation-settings: 'opsz' 60;"
-        >
-          {session.price}
-        </p>
-        <p class="mt-2 text-sm text-cornsilk/60">{session.cadence}</p>
-
-        <p class="mt-6 text-[0.95rem] leading-relaxed text-cornsilk/70">
-          {session.summary}
-        </p>
-
-        <a href={site.calendlyUrl} class="btn btn-primary mt-9 w-full">
-          Book a free intro call
-        </a>
-        <p class="mt-4 text-center text-sm text-cornsilk/60">
-          Starts with a free 30-minute intro call.
-        </p>
-      </article>
+        How coaching works
+      </h2>
+      <p class="mt-6 text-lg leading-relaxed text-ink-soft">
+        Each session is an hour, on a video call or in person, just you and me.
+        You bring the
+        codebase and a question, such as whether it's safe to launch, why it
+        slows down under load, or whether to restructure it before it grows. We
+        work through it on your code.
+      </p>
     </div>
 
-    <div class="mt-24 border-t border-olive-leaf/20 pt-14">
-      <span class="reveal eyebrow text-olive-leaf">How it works</span>
-      <ol class="mt-8 grid gap-10 md:grid-cols-3 md:gap-8">
-        {
-          steps.map((step, i) => (
-            <li class="reveal" data-delay={i * 90}>
-              <div class="flex items-baseline gap-3">
-                <span
-                  class="font-display text-lg font-medium text-olive-leaf"
-                  style="font-variation-settings: 'opsz' 40;"
-                >
-                  {step.n}
-                </span>
-                <h3
-                  class="font-display text-xl font-medium text-bark"
-                  style="font-variation-settings: 'opsz' 40;"
-                >
-                  {step.title}
-                </h3>
-              </div>
-              <p class="mt-3 text-[0.95rem] leading-relaxed text-bark-soft">
-                {step.body}
-              </p>
-            </li>
-          ))
-        }
-      </ol>
+    <dl class="mt-14 grid gap-x-12 sm:grid-cols-2">
+      {
+        topics.map((t) => (
+          <div class="border-t border-green py-5">
+            <dt class="font-display text-xl font-medium text-green">{t.term}</dt>
+            <dd class="mt-2 max-w-md leading-relaxed text-ink-soft">{t.detail}</dd>
+          </div>
+        ))
+      }
+    </dl>
+
+    <!-- Terms as a single ruled line, like the bottom of an invoice. -->
+    <div
+      class="mt-10 flex flex-col gap-3 border-y-2 border-ink py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
+    >
+      <p class="shrink-0 font-display text-2xl font-medium">
+        $200 <span class="text-lg font-normal text-ink-soft">per one-hour session</span>
+      </p>
+      <p class="max-w-md text-ink-soft">
+        Before any paid session there's a free 30-minute call, so we can both
+        check it's a good fit. Sessions are booked one at a time, with no
+        package to buy.
+      </p>
     </div>
   </div>
 </section>

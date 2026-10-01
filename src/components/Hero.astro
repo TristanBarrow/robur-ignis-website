@@ -1,88 +1,54 @@
 ---
+import { Image } from "astro:assets";
+import portrait from "../assets/tristanbarrow.jpg";
 import { site } from "../config";
 ---
 
-<section
-  id="top"
-  class="relative flex min-h-screen items-center overflow-hidden bg-black-forest"
->
-  <!-- Ember glow: the fire, kept to a faint warmth rather than a flood. -->
-  <div
-    class="pointer-events-none absolute inset-0"
-    aria-hidden="true"
-    style="background: radial-gradient(60% 55% at 72% 78%, rgba(221,161,94,0.16) 0%, rgba(184,50,31,0.06) 38%, transparent 72%);"
-  >
-  </div>
+<section id="top" class="grid-paper pb-20 pt-14 lg:pb-28 lg:pt-20">
+  <div class="mx-auto max-w-6xl px-6 lg:px-8">
+    <div class="grid gap-12 lg:grid-cols-[1fr_20rem] lg:gap-20">
+      <div>
+        <h1
+          class="max-w-3xl font-display text-[clamp(2.2rem,4.8vw,3.75rem)] font-medium leading-[1.08] tracking-[-0.02em] text-ink"
+        >
+          Get an experienced engineer's eyes on what you built with AI.
+        </h1>
 
-  <!-- Oak-grain motif: concentric rings at very low opacity. -->
-  <svg
-    class="pointer-events-none absolute -right-32 top-1/2 h-[46rem] w-[46rem] -translate-y-1/2 text-sunlit-clay opacity-[0.05]"
-    viewBox="0 0 400 400"
-    fill="none"
-    stroke="currentColor"
-    aria-hidden="true"
-  >
-    {
-      [38, 72, 108, 146, 186, 228, 272, 318].map((r, i) => (
-        <ellipse
-          cx="200"
-          cy="200"
-          rx={r}
-          ry={r * 0.88}
-          stroke-width={i % 2 === 0 ? 1.4 : 0.7}
-        />
-      ))
-    }
-  </svg>
+        <p class="mt-8 max-w-xl text-lg leading-relaxed text-ink-soft">
+          I'm Tristan Barrow, a software engineer with ten years of experience.
+          I meet one-to-one with people who've built something with AI tools and
+          want it checked for security, scale and structure before it carries
+          real users.
+        </p>
 
-  <div class="relative mx-auto w-full max-w-6xl px-6 pb-20 pt-32 lg:px-8">
-    <!-- The etymology is the strongest asset in the pitch: lead with it. -->
-    <div
-      class="reveal mb-10 flex flex-wrap items-center gap-x-8 gap-y-2"
-      data-delay="0"
-    >
-      <span class="eyebrow text-sunlit-clay">
-        Robur <span class="text-cornsilk/60">· oak</span>
-      </span>
-      <span class="eyebrow text-sunlit-clay">
-        Ignis <span class="text-cornsilk/60">· fire</span>
-      </span>
+        <div class="mt-10 flex flex-wrap items-center gap-x-7 gap-y-4">
+          <a href={site.calendlyUrl} class="btn">Book a free 30-min call</a>
+          <a href="#services" class="link text-ink-soft">How sessions work</a>
+        </div>
+      </div>
+
+      <!-- Mounted like a print in a report: paper mat, hairline frame, caption. -->
+      <figure class="max-w-[17rem] self-start lg:mt-2 lg:max-w-none">
+        <div class="border border-ink/80 bg-paper-deep p-2.5">
+          <div class="aspect-[4/5] overflow-hidden">
+            <!-- Cropped to head and shoulders: scaled about a point just above the chin. -->
+            <Image
+              src={portrait}
+              alt="Tristan Barrow"
+              widths={[400, 567]}
+              sizes="(min-width: 1024px) 20rem, 17rem"
+              class="h-full w-full origin-[50%_42%] scale-125 object-cover object-top"
+              style="filter: saturate(0.9) contrast(1.04);"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </div>
+        </div>
+        <figcaption class="mt-3 flex items-baseline justify-between gap-4">
+          <span class="font-display font-medium">Tristan Barrow</span>
+          <span class="label text-green">Software engineer</span>
+        </figcaption>
+      </figure>
     </div>
-
-    <h1
-      class="reveal max-w-4xl font-display text-[clamp(2.75rem,7vw,5.25rem)] font-normal leading-[1.04] tracking-[-0.02em] text-cornsilk"
-      data-delay="80"
-      style="font-variation-settings: 'opsz' 96;"
-    >
-      The strength to<br />withstand the fire.
-    </h1>
-
-    <p
-      class="reveal mt-8 max-w-xl text-lg leading-relaxed text-cornsilk/70"
-      data-delay="160"
-    >
-      AI let you build it in a weekend. I help you find out whether it will
-      hold up: one-to-one coaching from a software engineer with ten years of
-      experience, focused on the code you're actually shipping.
-    </p>
-
-    <div class="reveal mt-11 flex flex-wrap items-center gap-4" data-delay="240">
-      <a href={site.calendlyUrl} class="btn btn-primary">Book a call</a>
-      <a href="#services" class="btn btn-ghost">
-        How sessions work
-        <span aria-hidden="true">→</span>
-      </a>
-    </div>
-
-    <p class="reveal mt-8 text-sm text-cornsilk/60" data-delay="320">
-      Free 30-minute technical conversation. No pitch deck.
-    </p>
-  </div>
-
-  <!-- Hairline transition into the section below -->
-  <div
-    class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-olive-leaf to-transparent"
-    aria-hidden="true"
-  >
   </div>
 </section>
