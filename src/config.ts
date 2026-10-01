@@ -13,9 +13,8 @@ export const site = {
   // TODO: switch to hello@robur-ignis.com once that mailbox exists.
   email: "tbfox32@gmail.com",
 
-  // TODO: replace with your real Calendly scheduling link.
-  // e.g. "https://calendly.com/robur-ignis/intro-call"
-  calendlyUrl: "#book",
+  // Free 30-minute intro call.
+  bookingUrl: "https://cal.com/tristan-barrow-37tyc2/30min",
 
   // TODO: replace with the live Stripe Payment Link for a $200 coaching session
   // (send it after the free intro call; not linked from the site yet).

@@ -43,13 +43,7 @@ import { site } from "../config";
           <a href={`mailto:${site.email}`} class="link">{site.email}</a>.
         </p>
       </div>
-      <!--
-        TODO: point site.calendlyUrl at your Calendly link.
-        To embed inline instead of linking out, drop Calendly's widget script
-        in here and replace this anchor with:
-        <div class="calendly-inline-widget" data-url={site.calendlyUrl}></div>
-      -->
-      <a href={site.calendlyUrl} class="btn shrink-0">Choose a time</a>
+      <a href={site.bookingUrl} class="btn shrink-0">Choose a time</a>
     </div>
   </div>
 </section>
