@@ -16,13 +16,13 @@ export const site = {
   // Free 30-minute intro call.
   bookingUrl: "https://cal.com/tristan-barrow-37tyc2/30min",
 
-  // TODO: replace with the live Stripe Payment Link for a $200 coaching session
-  // (send it after the free intro call; not linked from the site yet).
-  // Create at https://dashboard.stripe.com/payment-links
-  stripePaymentLink: "#book",
+  // Stripe Payment Link for a $200 coaching session. Read from STRIPE_LINK at
+  // build time (.env locally, a repo variable in CI); the link is hidden if unset.
+  stripePaymentLink: import.meta.env.STRIPE_LINK as string | undefined,
 };
 
 export const nav = [
   { label: "Coaching", href: "#services" },
   { label: "About", href: "#about" },
+  ...(site.stripePaymentLink ? [{ label: "Payments", href: site.stripePaymentLink }] : []),
 ];
