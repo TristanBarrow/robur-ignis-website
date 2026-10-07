@@ -39,7 +39,8 @@
   }
 
   ::selection {
-    background-color: color-mix(in srgb, var(--color-ember) 22%, transparent);
+    /* Solid tan reads on both paper and green-deep; a translucent tint went muddy on the dark sections. */
+    background-color: var(--color-tan);
     color: var(--color-ink);
   }
 
