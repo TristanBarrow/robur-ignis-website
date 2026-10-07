@@ -1,4 +1,6 @@
 ---
+import { promoPrice, site } from "../config";
+
 // One offer while the practice is new: paid coaching sessions,
 // each preceded by a free intro call to check it's a fit.
 const topics = [
@@ -53,9 +55,27 @@ const topics = [
     <div
       class="mt-10 flex flex-col gap-3 border-y-2 border-ink py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
     >
-      <p class="shrink-0 font-display text-2xl font-medium">
-        $200 <span class="text-lg font-normal text-ink-soft">per one-hour session</span>
-      </p>
+      <div class="shrink-0">
+        <p class="font-display text-2xl font-medium">
+          {
+            site.promo ? (
+              <>
+                <s class="font-normal text-ink-faint">${site.sessionPrice}</s> ${promoPrice}
+              </>
+            ) : (
+              <>${site.sessionPrice}</>
+            )
+          }{" "}
+          <span class="text-lg font-normal text-ink-soft">per one-hour session</span>
+        </p>
+        {
+          site.promo && (
+            <p class="note mt-1">
+              Introductory rate: {site.promo.percentOff}% off with code {site.promo.code}
+            </p>
+          )
+        }
+      </div>
       <p class="max-w-md text-ink-soft">
         Before any paid session there's a free 30-minute call, so we can both
         check it's a good fit. Sessions are booked one at a time, with no

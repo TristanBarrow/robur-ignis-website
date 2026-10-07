@@ -19,7 +19,19 @@ export const site = {
   // Stripe Payment Link for a $200 coaching session. Read from STRIPE_LINK at
   // build time (.env locally, a repo variable in CI); the link is hidden if unset.
   stripePaymentLink: import.meta.env.STRIPE_LINK as string | undefined,
+
+  sessionPrice: 200,
+
+  // Stripe promotion code shown beside the price. Set to undefined when it ends
+  // and the site goes back to showing the full price only.
+  promo: { code: "OAKFIRE", percentOff: 75 } as
+    | { code: string; percentOff: number }
+    | undefined,
 };
+
+export const promoPrice = site.promo
+  ? Math.round(site.sessionPrice * (1 - site.promo.percentOff / 100))
+  : undefined;
 
 export const nav = [
   { label: "Coaching", href: "#services" },
