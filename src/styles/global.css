@@ -1,22 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  /* Engineering paper: green-white paper, green structure, red pen. */
-  --color-paper: #f3f4ee;
-  --color-paper-deep: #dfe7df;
-  --color-rule: #c9d5cb;
-  --color-ink: #16201b;
-  --color-ink-soft: #46514a;
-  --color-ink-faint: #5f6a63;
+  /* Oak and parchment: cream paper, olive structure, red pen. Matches Stripe checkout. */
+  --color-paper: #f8f5ea;
+  --color-paper-deep: #ebe5d1;
+  --color-rule: #d8d0b8;
+  --color-ink: #1e2214;
+  --color-ink-soft: #4b4d3c;
+  --color-ink-faint: #62634c;
 
   /* Green for structure; ember is the red pen: annotations and the one ask.
      Ember is a shade darker than the swatch so white button text passes AA. */
-  --color-green: #2f6a52;
-  --color-green-deep: #1f4a3a;
+  --color-green: #4a5a26;
+  --color-green-deep: #283618;
   --color-ember: #c23a26;
   --color-ember-deep: #a3301f;
 
-  /* Tan, from the favicon. Only on green-deep: too light for text on paper. */
+  /* Tan, from the favicon and Stripe checkout. Only on green-deep: too light for text on paper. */
   --color-tan: #dda15e;
 
   --font-display: "Besley", ui-serif, Georgia, serif;
