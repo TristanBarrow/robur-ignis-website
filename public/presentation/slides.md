@@ -25,6 +25,18 @@ AI has made it possible for far more people to start building businesses. Those 
 
 ---
 
+### About me
+
+## Tristan Barrow
+
+Software engineer, ten years building production systems.
+
+- a decade of software expirence
+- half of that as a consultant
+- I know AI because I use it daily
+
+---
+
 ## The shovel: a business-building pipeline.
 
 Note:
