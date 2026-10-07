@@ -8,7 +8,7 @@ const { tone = "dark", class: className = "" } = Astro.props;
 
 // "light" = light text, for dark backgrounds.
 const text = tone === "light" ? "text-paper" : "text-ink";
-const mark = "text-ember";
+const mark = tone === "light" ? "text-tan" : "text-ember";
 ---
 
 <span class={`inline-flex items-center gap-2.5 ${className}`}>

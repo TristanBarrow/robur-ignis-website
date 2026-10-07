@@ -16,6 +16,9 @@
   --color-ember: #c23a26;
   --color-ember-deep: #a3301f;
 
+  /* Tan, from the favicon. Only on green-deep: too light for text on paper. */
+  --color-tan: #dda15e;
+
   --font-display: "Besley", ui-serif, Georgia, serif;
   --font-sans: "Public Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;

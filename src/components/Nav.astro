@@ -3,21 +3,21 @@ import Wordmark from "./Wordmark.astro";
 import { nav, site } from "../config";
 ---
 
-<header class="border-b border-rule">
+<header class="bg-green-deep">
   <div class="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-5 lg:px-8">
-    <a href="#top" class="shrink-0" aria-label={`${site.name} — home`}>
-      <Wordmark />
+    <a href="#top" class="shrink-0 focus-visible:outline-tan" aria-label={`${site.name} — home`}>
+      <Wordmark tone="light" />
     </a>
 
     <nav class="flex items-center gap-6 text-sm sm:gap-8" aria-label="Primary">
       {
         nav.map((item) => (
-          <a href={item.href} class="hidden text-ink-soft hover:text-ember sm:inline">
+          <a href={item.href} class="hidden text-paper/80 hover:text-tan focus-visible:outline-tan sm:inline">
             {item.label}
           </a>
         ))
       }
-      <a href={site.bookingUrl} class="link font-semibold text-ember">Book a call</a>
+      <a href={site.bookingUrl} class="link font-semibold text-tan hover:text-tan hover:decoration-tan focus-visible:outline-tan">Book a call</a>
     </nav>
   </div>
 </header>
