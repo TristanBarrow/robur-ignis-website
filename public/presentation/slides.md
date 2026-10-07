@@ -109,3 +109,9 @@ A platform that lets early builders explore their ideas quickly and easily.
 
 Note:
 This closes the loop: the platform feeds new clients back into coaching.
+
+---
+
+![](shadow.jpeg)
+
+Note:
