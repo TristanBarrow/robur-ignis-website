@@ -22,10 +22,11 @@ export const site = {
 
   sessionPrice: 200,
 
-  // Stripe promotion code shown beside the price. Set to undefined when it ends
-  // and the site goes back to showing the full price only.
-  promo: { code: "OAKFIRE", percentOff: 75 } as
-    | { code: string; percentOff: number }
+  // Founding client discount: a Stripe promotion code for the first few clients,
+  // shown beside the price. Set to undefined when the spots are taken and the
+  // site goes back to showing the full price only.
+  promo: { code: "OAKFIRE", percentOff: 50, spots: 5 } as
+    | { code: string; percentOff: number; spots: number }
     | undefined,
 };
 
