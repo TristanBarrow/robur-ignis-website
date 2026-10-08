@@ -20,6 +20,10 @@ export const site = {
   // build time (.env locally, a repo variable in CI); the link is hidden if unset.
   stripePaymentLink: import.meta.env.STRIPE_LINK as string | undefined,
 
+  // Cloudflare Web Analytics beacon token. Read from CF_ANALYTICS_TOKEN at build
+  // time (.env locally, a repo variable in CI); no tracking script if unset.
+  analyticsToken: import.meta.env.CF_ANALYTICS_TOKEN as string | undefined,
+
   sessionPrice: 200,
 
   // Founding client discount: a Stripe promotion code for the first few clients,

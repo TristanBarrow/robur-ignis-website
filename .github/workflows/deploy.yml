@@ -22,6 +22,7 @@ jobs:
       - uses: withastro/action@v3
         env:
           STRIPE_LINK: ${{ vars.STRIPE_LINK }}
+          CF_ANALYTICS_TOKEN: ${{ vars.CF_ANALYTICS_TOKEN }}
         with:
           node-version: 22
 
