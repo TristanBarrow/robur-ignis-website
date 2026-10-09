@@ -102,6 +102,11 @@ find when they get through. If it's a padded room with pocket change, you end
 up with a disappointed hacker. If it's your admin keys and every user's data,
 it could sink your company.
 
+If you've built something with AI and you're not sure which one you have,
+that's exactly what I help with.
+[Book a free 30-minute call](https://cal.com/tristan-barrow-37tyc2/30min) and
+we'll look at it together.
+
 Sources:
 - Anthropic, [Disrupting the first reported AI-orchestrated cyber espionage campaign](https://assets.anthropic.com/m/ec212e6566a0d47/original/Disrupting-the-first-reported-AI-orchestrated-cyber-espionage-campaign.pdf) (2025)
 - CNBC, [ShinyHunters hackers say they breached FBI, stole data on bureau employees](https://www.cnbc.com/2026/09/22/shinyhunters-hack-fbi-stole-data.html) (September 2026)
