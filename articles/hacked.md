@@ -1,10 +1,14 @@
 “HACKED” is a very common word for me to see on my YouTube feed. It’s to the
 point that the [recent FBI hack](https://youtu.be/D6p2-IVRrrk) got a few
-blinks out of me before I just kept scrolling. AI has made it cheap to try
-every door, so being small doesn't keep you safe anymore. In this article, I’ll
-explain the way security used to work, why the old paradigm no longer works and what you should actually do about it. I'm a
-software engineer, not a security specialist. What follows is the security work
-that lands on developers, which is the part I know best.
+blinks out of me before I just kept scrolling. Not because it doesn't matter.
+The hackers claim to have personal details on thousands of FBI employees, and
+those are real people with real families. It's that headlines like this have
+become so normal they barely register. AI has made it cheap to try every door,
+so being small doesn't keep you safe anymore. In this article, I’ll explain the
+way security used to work, why the old paradigm no longer works and what you
+should actually do about it. I'm a software engineer, not a security
+specialist. What follows is the security work that lands on developers, which
+is the part I know best.
 
 Cybersecurity has always been less of a wall and more of a complicated maze.
 All of your passwords, passkeys and biometric data give you the path through
@@ -29,9 +33,8 @@ several bots are going to get through. Once they actually break into your
 system, they'll realize they only have access to a tiny padded room with
 little more than pocket change in it.
 
-This analogy is great, but what does this mean for you specifically? I'll break
-my actionable advice into 3 subjective categories based on the size of the
-company or thing you are securing.
+So what does this mean for you specifically? I'll break my actionable advice
+into 3 categories based on the size of the company or thing you are securing.
 
 Individuals and families:
 - Use a password manager (1Password is my recommendation) and let it
@@ -70,7 +73,7 @@ their data. The following list is the bare minimum, and none of it takes long.
 
 Medium size startups and larger:
 
-At this stage, please hire someone to do security analysis on your system if
+At this stage, hire someone to do security analysis on your system if
 you can afford it and use automated systems as much as possible. This field is
 rapidly changing and it requires sustained effort to keep your company secure.
 The specific tools will change quickly, but the ideas in this article won't.
