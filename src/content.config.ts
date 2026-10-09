@@ -14,6 +14,8 @@ const articles = defineCollection({
     pubDate: z.coerce.date(),
     // Share image for link previews, a path under public/ (1200×630).
     image: z.string().optional(),
+    // The LinkedIn post that shares this article, linked at the end of the page.
+    linkedin: z.string().optional(),
   }),
 });
 

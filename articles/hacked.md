@@ -3,6 +3,7 @@ title: Hacked
 description: How AI changed security, and what to do about it.
 pubDate: 2026-10-09
 image: /og/hacked.png
+linkedin: https://www.linkedin.com/posts/tristanmbarrow_i-found-myself-almost-unfazed-by-the-recent-share-7514449702516371456-5FqI/
 ---
 
 "HACKED" is a very common word for me to see on my YouTube feed. It's to the

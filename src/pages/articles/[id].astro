@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 }
 
 const { article } = Astro.props;
-const { title, description, pubDate, image } = article.data;
+const { title, description, pubDate, image, linkedin } = article.data;
 const { Content } = await render(article);
 ---
 
@@ -41,6 +41,16 @@ const { Content } = await render(article);
       <div class="prose-article mt-10">
         <Content />
       </div>
+
+      {
+        linkedin && (
+          <p class="mt-12">
+            <a href={linkedin} class="link font-semibold text-green">
+              Interact with this post on LinkedIn &rarr;
+            </a>
+          </p>
+        )
+      }
 
       <!-- Byline: the hero's framed portrait, shrunk to a thumbnail. -->
       <footer class="mt-16 flex items-center gap-5 border-t-2 border-ink pt-8">
