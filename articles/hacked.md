@@ -38,13 +38,13 @@ Individuals and families:
 - Log in with SSO where available.
 - Use multi-factor authentication.
 
-Small Startups (0-5,000 users):
+Small Startups (pre-launch to your first few thousand users):
 
-Advice to small startups or very early stage builders. Yes, you need to think
-about security to some degree, but if you don't have anything worth securing,
-there is no point to security. The following list is important for getting
-started but you should put more effort into making something worth securing
-before you get too worried about security.
+Advice to small startups or very early stage builders. You don't need a
+security team yet, and most of your effort should go into making something
+people want. But remember those bots running the maze. They don't check how big
+you are before trying the door, and as soon as you have users, you're holding
+their data. The following list is the bare minimum, and none of it takes long.
 
 - Use SSO providers instead of passwords (Sign in with Google, Facebook,
   GitHub, Microsoft, etc...)
@@ -64,11 +64,10 @@ quickly.
 
 Conclusion:
 
-If you are a small startup, there are a few simple things you should do for
-security but you should focus on creating something of value first before you
-worry too much about securing said value. Medium to large businesses should
-consult with security specialists to stay up to date with the latest security
-measures and trends.
+If you are a small startup, you don't need to go overboard, but you can't skip
+the basics either. Do the simple things now and put the rest of your energy
+into building. Medium to large businesses should consult with security
+specialists to stay up to date with the latest security measures and trends.
 
 
 
