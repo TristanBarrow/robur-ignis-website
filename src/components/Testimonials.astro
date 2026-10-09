@@ -1,0 +1,101 @@
+---
+import { getCollection, render } from "astro:content";
+
+// Client quotes from /testimonials, newest first. The section renders
+// nothing until the first one is added.
+const testimonials = (await getCollection("testimonials")).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+const quotes = await Promise.all(
+  testimonials.map(async (t) => ({ ...t.data, Content: (await render(t)).Content })),
+);
+---
+
+{
+  quotes.length > 0 && (
+    <section id="testimonials" class="scroll-mt-8 py-20 lg:py-28">
+      <div class="mx-auto max-w-6xl px-6 lg:px-8">
+        <h2 class="font-display text-[clamp(1.9rem,3.6vw,2.75rem)] font-medium leading-[1.12] tracking-[-0.015em]">
+          From people I’ve worked with
+        </h2>
+
+        <!-- One quote at a time. The track is a scroll-snap strip, so it swipes
+             on touch without script; the buttons just step it along. -->
+        <div class="testimonials mt-14 max-w-3xl" role="region" aria-roledescription="carousel" aria-label="Testimonials">
+          <div
+            class="track flex snap-x snap-mandatory items-start gap-12 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            tabindex={quotes.length > 1 ? 0 : undefined}
+          >
+            {quotes.map(({ name, role, link, Content }, i) => (
+              <figure
+                class="w-full shrink-0 snap-start border-t border-green pt-6"
+                aria-roledescription="slide"
+                aria-label={`${i + 1} of ${quotes.length}`}
+              >
+                <blockquote class="space-y-4 font-display text-xl italic leading-relaxed text-ink">
+                  <Content />
+                </blockquote>
+                <figcaption class="mt-5">
+                  <p class="font-semibold">
+                    {link ? <a href={link} class="link">{name}</a> : name}
+                  </p>
+                  {role && <p class="label mt-1">{role}</p>}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+
+          {quotes.length > 1 && (
+            <div class="mt-8 flex items-center gap-6">
+              <button type="button" class="prev link cursor-pointer text-ink-soft disabled:pointer-events-none disabled:opacity-40">
+                Previous
+              </button>
+              <p class="count label" aria-live="polite">1 / {quotes.length}</p>
+              <button type="button" class="next link cursor-pointer text-ink-soft disabled:pointer-events-none disabled:opacity-40">
+                Next
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<script>
+  for (const root of document.querySelectorAll<HTMLElement>(".testimonials")) {
+    const track = root.querySelector<HTMLElement>(".track")!;
+    const prev = root.querySelector<HTMLButtonElement>(".prev");
+    const next = root.querySelector<HTMLButtonElement>(".next");
+    const count = root.querySelector<HTMLElement>(".count");
+    if (!prev || !next || !count) continue;
+
+    const slides = track.children.length;
+    // One step is a slide's width plus the gap between slides.
+    const stepWidth = () =>
+      (track.children[1] as HTMLElement).offsetLeft - (track.children[0] as HTMLElement).offsetLeft;
+    const index = () => Math.round(track.scrollLeft / stepWidth());
+
+    const update = () => {
+      const i = index();
+      count.textContent = `${i + 1} / ${slides}`;
+      prev.disabled = i === 0;
+      next.disabled = i === slides - 1;
+    };
+
+    const go = (step: number) => {
+      const smooth = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const i = Math.min(Math.max(index() + step, 0), slides - 1);
+      track.scrollTo({ left: i * stepWidth(), behavior: smooth ? "smooth" : "auto" });
+    };
+
+    prev.addEventListener("click", () => go(-1));
+    next.addEventListener("click", () => go(1));
+    track.addEventListener("scroll", update, { passive: true });
+    track.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") (e.preventDefault(), go(-1));
+      if (e.key === "ArrowRight") (e.preventDefault(), go(1));
+    });
+    update();
+  }
+</script>

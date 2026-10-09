@@ -19,4 +19,18 @@ const articles = defineCollection({
   }),
 });
 
-export const collections = { articles };
+// Client quotes live in /testimonials, one Markdown file each; the body is the quote.
+const testimonials = defineCollection({
+  loader: glob({ base: "./testimonials", pattern: ["**/*.md", "!README.md"] }),
+  schema: z.object({
+    name: z.string(),
+    // Job title and company, shown under the name.
+    role: z.string().optional(),
+    // Newest first on the page.
+    date: z.coerce.date(),
+    // A profile (e.g. LinkedIn) the name links to.
+    link: z.url().optional(),
+  }),
+});
+
+export const collections = { articles, testimonials };
