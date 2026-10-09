@@ -109,6 +109,8 @@ find when they get through. If it's a padded room with pocket change, you end
 up with a disappointed hacker. If it's your admin keys and every user's data,
 it could sink your company.
 
+***
+
 If you've built something with AI and you're not sure which one you have,
 that's exactly what I help with.
 [Book a free 30-minute call](https://cal.com/tristan-barrow-37tyc2/30min) and

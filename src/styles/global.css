@@ -152,6 +152,19 @@
     color: var(--color-ember);
     text-decoration-color: var(--color-ember);
   }
+  /* A short green rule sets an aside (like the closing offer) apart from
+     the argument above it. */
+  .prose-article hr {
+    width: 4rem;
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
+    border: 0;
+    border-top: 2px solid var(--color-green);
+  }
+  .prose-article hr + * {
+    margin-top: 0;
+    color: var(--color-ink-soft);
+  }
   /* The reference list closes the piece in smaller type, like footnotes. */
   .prose-article h2:last-of-type + ul {
     font-size: 0.95rem;
