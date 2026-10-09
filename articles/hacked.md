@@ -95,10 +95,13 @@ it matters that each person and system can only reach what it needs.
 
 Conclusion:
 
-If you are a small startup, you don't need to go overboard, but you can't skip
-the basics either. Do the simple things now and put the rest of your energy
-into building. Medium to large businesses should consult with security
-specialists to stay up to date with the latest security measures and trends.
+You can't build a maze the bots won't solve. What you can control is what they
+find when they get through. If it's a padded room with pocket change, a breach
+is a bad day. If it's your admin keys and every user's data, it could sink your
+company.
+
+If you only do one thing after reading this, go check where your API keys live.
+If any of them are in your frontend code or your GitHub repo, start there.
 
 Sources:
 - NBC News, [Hackers say they breached FBI & stole data](https://youtu.be/1F7nHZgV7Z4)
