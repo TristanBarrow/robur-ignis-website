@@ -2,13 +2,15 @@
 point that the recent FBI hack got a few blinks out of me before I just kept
 scrolling. Because of AI, being vulnerable is the rule and not the exception.
 In this article, I’ll explain the way security used to work, why the old
-paradigm no longer works and what you should actually do about it.
+paradigm no longer works and what you should actually do about it. I'm a
+software engineer, not a security specialist. What follows is the security work
+that lands on developers, which is the part I know best.
 
 Cybersecurity has always been less of a wall and more of a complicated maze.
 All of your passwords, passkeys and biometric data give you the path through
-the maze that's just for you. The dirty little secret every security specialist
-has kept is that it is virtually impossible to plug every hole in the maze. It's
-widely accepted that there is always a path through for a bad actor. The issue
+the maze that's just for you. Security people have known for a long time that
+it is virtually impossible to plug every hole in the maze. There is always a
+path through for a bad actor. The issue
 for said bad actor is the maze would get so complicated that it's simply no
 longer worth it to keep trying to get in. Hackers might go for a lower value
 target simply because it's easier to break in.
@@ -21,8 +23,9 @@ good enough for small and mid-size businesses. That is no longer the case.
 Keeping up with patches is still important and you should do so in an automated
 fashion but it's not quite enough.
 
-The most advanced security specialists are taking a stance of "assume breach
-and shrink blast radius". In maze terms, this means you should assume that
+The current thinking in security is to
+[assume breach](https://learn.microsoft.com/en-us/security/zero-trust/zero-trust-overview)
+and shrink the blast radius. In maze terms, this means you should assume that
 several bots are going to get through. Once they actually break into your
 system, they'll realize they only have access to a tiny padded room with
 little more than pocket change in it.
@@ -50,6 +53,13 @@ their data. The following list is the bare minimum, and none of it takes long.
   GitHub, Microsoft, etc...)
 - Don't hold payment data if you don't have to (use Stripe, PayPal, Square,
   Helcim, etc...)
+- Keep API keys and passwords out of your code. They belong in environment
+  variables on the server, never in the browser or in GitHub.
+- Give each key and database user only the access it needs. (If you use
+  Supabase or Firebase, turn on row-level security or security rules.)
+- Turn on multi-factor authentication for your admin accounts (GitHub, your
+  cloud provider, your domain registrar, Stripe, etc...)
+- Keep backups and actually test restoring them.
 - Ask AI to do a security scan on your system and to give you advice on basic
   security measures.
 - Use automated security scanners (Dependabot, Renovate, etc...)
@@ -68,12 +78,5 @@ If you are a small startup, you don't need to go overboard, but you can't skip
 the basics either. Do the simple things now and put the rest of your energy
 into building. Medium to large businesses should consult with security
 specialists to stay up to date with the latest security measures and trends.
-
-
-
-DISCLAIMER:
-While I am certified in software development and have _some_ advanced security
-training, this advice is not exhaustive and should be cross referenced with
-additional certified security specialists.
 
 
