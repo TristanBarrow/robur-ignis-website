@@ -4,8 +4,9 @@ import { z } from "astro/zod";
 
 // Articles live in /articles at the repo root, one Markdown file each.
 // The file name becomes the URL: articles/hacked.md → /articles/hacked/
+// *.linkedin.md files hold social post drafts and are never published.
 const articles = defineCollection({
-  loader: glob({ base: "./articles", pattern: "**/*.md" }),
+  loader: glob({ base: "./articles", pattern: ["**/*.md", "!**/*.linkedin.md"] }),
   schema: z.object({
     title: z.string(),
     // Shown under the title and used as the page's meta description.
