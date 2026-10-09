@@ -5,11 +5,15 @@ import { site } from "../config";
 interface Props {
   title?: string;
   description?: string;
+  type?: "website" | "article";
+  // Share image path under public/, 1200×630.
+  image?: string;
 }
 
-const { title, description = site.description } = Astro.props;
+const { title, description = site.description, type = "website", image } = Astro.props;
 const pageTitle = title ? `${title} — ${site.name}` : `${site.name} — ${site.tagline}`;
 const canonical = new URL(Astro.url.pathname, site.url).href;
+const imageUrl = image ? new URL(image, site.url).href : undefined;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -31,12 +35,23 @@ const jsonLd = {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={type} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={site.name} />
     <meta name="twitter:card" content="summary_large_image" />
+    {
+      imageUrl && (
+        <>
+          <meta property="og:image" content={imageUrl} />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta property="og:image:alt" content={pageTitle} />
+          <meta name="twitter:image" content={imageUrl} />
+        </>
+      )
+    }
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="theme-color" content="#f3f4ee" />

@@ -39,7 +39,8 @@ export const promoPrice = site.promo
   : undefined;
 
 export const nav = [
-  { label: "Coaching", href: "#services" },
-  { label: "About", href: "#about" },
+  { label: "Coaching", href: "/#services" },
+  { label: "About", href: "/#about" },
+  { label: "Articles", href: "/articles/" },
   ...(site.stripePaymentLink ? [{ label: "Payments", href: site.stripePaymentLink }] : []),
 ];

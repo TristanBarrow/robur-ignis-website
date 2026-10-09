@@ -1,3 +1,10 @@
+---
+title: Hacked
+description: How AI changed security, and what to do about it.
+pubDate: 2026-10-09
+image: /og/hacked.png
+---
+
 "HACKED" is a very common word for me to see on my YouTube feed. It's to the
 point that the [recent FBI hack](https://youtu.be/D6p2-IVRrrk) got a few blinks
 out of me before I just kept scrolling. Not because it doesn't matter. The
@@ -42,7 +49,7 @@ little more than pocket change in it.
 So what does this mean for you specifically? I'll break my tactical advice
 into 3 categories based on the size of the company or thing you are securing.
 
-Individuals and Families:
+## Individuals and Families
 
 - Use a password manager (1Password is my recommendation) and let it
   generate your passwords.
@@ -58,7 +65,7 @@ Individuals and Families:
   text messages.
 - Keep your phone and computer updated.
 
-Small Startups (pre-launch to your first few thousand users):
+## Small Startups (pre-launch to your first few thousand users)
 
 Advice to small startups or very early stage builders. You don't need a
 security team yet, and most of your effort should go into making something
@@ -86,7 +93,7 @@ their data. The following list is the bare minimum, and none of it takes long.
 - Use automated dependency updates (Dependabot, Renovate, etc.). This is how
   you keep up with patches without thinking about it.
 
-Medium-Size Startups and Larger:
+## Medium-Size Startups and Larger
 
 At this stage, hire someone to do security analysis on your system if you can
 afford it and use automated systems as much as possible. This field is rapidly
@@ -95,7 +102,7 @@ specific tools will change quickly, but the ideas in this article won't.
 Everything on the startup list still applies, and the bigger you get, the more
 it matters that each person and system can only reach what it needs.
 
-Conclusion:
+## Conclusion
 
 You can't build a maze the bots won't solve. What you can control is what they
 find when they get through. If it's a padded room with pocket change, you end
@@ -107,7 +114,8 @@ that's exactly what I help with.
 [Book a free 30-minute call](https://cal.com/tristan-barrow-37tyc2/30min) and
 we'll look at it together.
 
-Sources:
+## Sources
+
 - Anthropic, [Disrupting the first reported AI-orchestrated cyber espionage campaign](https://assets.anthropic.com/m/ec212e6566a0d47/original/Disrupting-the-first-reported-AI-orchestrated-cyber-espionage-campaign.pdf) (2025)
 - CNBC, [ShinyHunters hackers say they breached FBI, stole data on bureau employees](https://www.cnbc.com/2026/09/22/shinyhunters-hack-fbi-stole-data.html) (September 2026)
 - Help Net Security, [Defenders must adapt to shrinking exploitation timelines](https://www.helpnetsecurity.com/2024/10/16/time-to-exploit-vulnerabilities-2023/) (October 2024), reporting Mandiant data

@@ -109,6 +109,55 @@
     color: var(--color-ember);
     text-decoration-color: var(--color-ember);
   }
+
+  /* Rendered Markdown in an article. Preflight strips list and heading styles,
+     so they're restored here in the site's type: Besley heads, Public Sans body. */
+  .prose-article {
+    font-size: 1.125rem;
+    line-height: 1.75;
+  }
+  .prose-article > * + * {
+    margin-top: 1.25em;
+  }
+  .prose-article h2 {
+    margin-top: 2.25em;
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .prose-article h2 + * {
+    margin-top: 0.75em;
+  }
+  .prose-article ul {
+    list-style: disc;
+    padding-left: 1.25em;
+  }
+  .prose-article li + li {
+    margin-top: 0.5em;
+  }
+  .prose-article li::marker {
+    color: var(--color-green);
+  }
+  .prose-article a {
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.25em;
+    overflow-wrap: anywhere;
+    transition: text-decoration-color 0.15s ease, color 0.15s ease;
+  }
+  .prose-article a:hover {
+    color: var(--color-ember);
+    text-decoration-color: var(--color-ember);
+  }
+  /* The reference list closes the piece in smaller type, like footnotes. */
+  .prose-article h2:last-of-type + ul {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-ink-soft);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
