@@ -104,7 +104,12 @@ If you only do one thing after reading this, go check where your API keys live.
 If any of them are in your frontend code or your GitHub repo, start there.
 
 Sources:
-- NBC News, [Hackers say they breached FBI & stole data](https://youtu.be/1F7nHZgV7Z4)
-- Fox News, [Hacking group claims it BREACHED FBI system, stole employee data](https://youtu.be/5-63DF9Eogs)
-- Low Level, [government hack situation is absolutely insane](https://youtu.be/zBRQR_XOsEE)
-- John Hammond, [oh my god](https://youtu.be/D6p2-IVRrrk)
+- Anthropic, [Disrupting the first reported AI-orchestrated cyber espionage campaign](https://assets.anthropic.com/m/ec212e6566a0d47/original/Disrupting-the-first-reported-AI-orchestrated-cyber-espionage-campaign.pdf) (2025)
+- CNBC, [ShinyHunters hackers say they breached FBI, stole data on bureau employees](https://www.cnbc.com/2026/09/22/shinyhunters-hack-fbi-stole-data.html) (September 2026)
+- Help Net Security, [Defenders must adapt to shrinking exploitation timelines](https://www.helpnetsecurity.com/2024/10/16/time-to-exploit-vulnerabilities-2023/) (October 2024), reporting Mandiant data
+- Microsoft, [Zero Trust as a security foundation](https://learn.microsoft.com/en-us/security/zero-trust/zero-trust-overview)
+- NIST, [SP 800-63B-4: Authentication and Authenticator Management](https://pages.nist.gov/800-63-4/sp800-63b.html) (2025)
+- National Vulnerability Database, [CVE-2025-48757](https://nvd.nist.gov/vuln/detail/CVE-2025-48757) (2025)
+- Video coverage of the FBI breach claim: [NBC News](https://youtu.be/1F7nHZgV7Z4),
+  [Fox News](https://youtu.be/5-63DF9Eogs), [Low Level](https://youtu.be/zBRQR_XOsEE),
+  [John Hammond](https://youtu.be/D6p2-IVRrrk)
