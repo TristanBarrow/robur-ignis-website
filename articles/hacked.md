@@ -1,8 +1,8 @@
 “HACKED” is a very common word for me to see on my YouTube feed. It’s to the
-point that the recent FBI hack got a few blinks out of me before I just kept
-scrolling. Because of AI, being vulnerable is the rule and not the exception.
-In this article, I’ll explain the way security used to work, why the old
-paradigm no longer works and what you should actually do about it. I'm a
+point that the [recent FBI hack](https://youtu.be/D6p2-IVRrrk) got a few
+blinks out of me before I just kept scrolling. AI has made it cheap to try
+every door, so being small doesn't keep you safe anymore. In this article, I’ll
+explain the way security used to work, why the old paradigm no longer works and what you should actually do about it. I'm a
 software engineer, not a security specialist. What follows is the security work
 that lands on developers, which is the part I know best.
 
@@ -10,9 +10,8 @@ Cybersecurity has always been less of a wall and more of a complicated maze.
 All of your passwords, passkeys and biometric data give you the path through
 the maze that's just for you. Security people have known for a long time that
 it is virtually impossible to plug every hole in the maze. There is always a
-path through for a bad actor. The issue
-for said bad actor is the maze would get so complicated that it's simply no
-longer worth it to keep trying to get in. Hackers might go for a lower value
+path through for a bad actor. The issue for said bad actor is the maze would
+get so complicated that it's simply no longer worth it to keep trying to get in. Hackers might go for a lower value
 target simply because it's easier to break in.
 
 So what happened with AI? AI allows automated bots to run down the security
@@ -35,11 +34,15 @@ my actionable advice into 3 subjective categories based on the size of the
 company or thing you are securing.
 
 Individuals and families:
-- Use long passwords not complex passwords. (bobbylikespurpleradishes is better
-  than B0BBy74@$&)
-- Use a password manager (1Password is my recommendation).
+- Use a password manager (1Password is my recommendation) and let it
+  generate your passwords.
+- For the one password you do have to remember, use a long password, not a
+  complex one. (bobbylikespurpleradishes is better than B0BBy74@$&)
+- Use passkeys where available.
 - Log in with SSO where available.
-- Use multi-factor authentication.
+- Use multi-factor authentication, ideally an authenticator app instead of
+  text messages.
+- Keep your phone and computer updated.
 
 Small Startups (pre-launch to your first few thousand users):
 
@@ -61,16 +64,18 @@ their data. The following list is the bare minimum, and none of it takes long.
   cloud provider, your domain registrar, Stripe, etc...)
 - Keep backups and actually test restoring them.
 - Ask AI to do a security scan on your system and to give you advice on basic
-  security measures.
-- Use automated security scanners (Dependabot, Renovate, etc...)
+  security measures. It will miss things, so treat it as a first pass.
+- Use automated dependency updates (Dependabot, Renovate, etc...). This is how
+  you keep up with patches without thinking about it.
 
 Medium size startups and larger:
 
 At this stage, please hire someone to do security analysis on your system if
 you can afford it and use automated systems as much as possible. This field is
 rapidly changing and it requires sustained effort to keep your company secure.
-Any advice for larger companies that I put here will likely be outdated
-quickly.
+The specific tools will change quickly, but the ideas in this article won't.
+Everything on the startup list still applies, and the bigger you get, the more
+it matters that each person and system can only reach what it needs.
 
 Conclusion:
 
@@ -78,5 +83,11 @@ If you are a small startup, you don't need to go overboard, but you can't skip
 the basics either. Do the simple things now and put the rest of your energy
 into building. Medium to large businesses should consult with security
 specialists to stay up to date with the latest security measures and trends.
+
+Sources:
+- NBC News, [Hackers say they breached FBI & stole data](https://youtu.be/1F7nHZgV7Z4)
+- Fox News, [Hacking group claims it BREACHED FBI system, stole employee data](https://youtu.be/5-63DF9Eogs)
+- Low Level, [government hack situation is absolutely insane](https://youtu.be/zBRQR_XOsEE)
+- John Hammond, [oh my god](https://youtu.be/D6p2-IVRrrk)
 
 
