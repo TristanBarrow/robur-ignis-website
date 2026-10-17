@@ -1,0 +1,153 @@
+<!doctype html>
+<!--
+  X/Twitter header image (1500×500). The profile photo covers the bottom-left
+  corner and mobile crops the top and bottom, so the type sits right of centre
+  in the middle band. Add ?tone=paper for the light version.
+  Render with headless Chrome, then crop to the top 1500×500 (a 500px window
+  leaves the bottom of the page unpainted):
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
+      --hide-scrollbars --force-device-scale-factor=1 --window-size=1500,700 \
+      --virtual-time-budget=5000 --screenshot=design/twitter-banner.png \
+      "file://$PWD/design/og/twitter-banner.html"
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Besley:wght@500;600&family=IBM+Plex+Mono:wght@400;500&display=block"
+    />
+    <style>
+      :root {
+        --paper: #f8f5ea;
+        --green-deep: #283618;
+        --tan: #dda15e;
+        --ember: #c23a26;
+        --ink: #1e2214;
+
+        --bg: var(--green-deep);
+        --fg: var(--paper);
+        --mark: var(--tan);
+        --grid: color-mix(in srgb, var(--tan) 7%, transparent);
+        --soft: color-mix(in srgb, var(--paper) 70%, transparent);
+        --rule: color-mix(in srgb, var(--paper) 18%, transparent);
+      }
+      :root.paper {
+        --bg: var(--paper);
+        --fg: var(--ink);
+        --mark: var(--ember);
+        --grid: color-mix(in srgb, #4a5a26 9%, transparent);
+        --soft: #4b4d3c;
+        --rule: #d8d0b8;
+      }
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1500px;
+        height: 500px;
+        overflow: hidden;
+      }
+      body {
+        position: relative;
+        background-color: var(--bg);
+        /* The hero's engineering-pad grid. */
+        background-image:
+          linear-gradient(var(--grid) 1px, transparent 1px),
+          linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+        background-size: 32px 32px;
+        background-position: -1px -1px;
+        color: var(--fg);
+        -webkit-font-smoothing: antialiased;
+      }
+      /* Oversized mark bleeding off the left edge, behind where the avatar sits. */
+      .emblem {
+        position: absolute;
+        left: 70px;
+        top: 50%;
+        width: 380px;
+        height: 380px;
+        transform: translateY(-50%);
+        fill: var(--mark);
+        opacity: 0.16;
+      }
+      main {
+        position: absolute;
+        left: 560px;
+        right: 96px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .label {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 20px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        color: var(--mark);
+      }
+      h1 {
+        margin-top: 16px;
+        font-family: "Besley", serif;
+        font-size: 58px;
+        font-weight: 500;
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+      }
+      footer {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+        padding-top: 18px;
+        border-top: 2px solid var(--rule);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 19px;
+        color: var(--soft);
+      }
+      .wordmark {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: "Besley", serif;
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--fg);
+      }
+      .wordmark svg {
+        width: 24px;
+        height: 24px;
+        fill: var(--mark);
+      }
+    </style>
+  </head>
+  <body>
+    <svg class="emblem" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M6.4 12.4C5.7 10.2 6.1 7.8 7.6 5.6C7.9 6.9 8.6 7.7 9.6 8.1C9.4 5.2 10.9 2.8 12.9 0.5C12.3 3.3 14.6 4.8 15.1 7.4C15.8 6.9 16.4 6.2 16.8 5.4C18.3 7.6 18.4 10.2 17.6 12.4Z" />
+      <path d="M4.6 14.8C4.6 19 8 21.4 12 21.4C16 21.4 19.4 19 19.4 14.8C19.4 14 18.8 13.4 18 13.4H6C5.2 13.4 4.6 14 4.6 14.8Z" />
+      <path d="M11.3 21.1C11.3 22.2 11.9 23.2 13.3 23.7L13.8 22.9C12.9 22.5 12.7 21.9 12.7 21.1Z" />
+    </svg>
+    <main>
+      <p class="label">Security · Scale · Structure</p>
+      <h1>Get an experienced engineer’s eyes on what you built with AI.</h1>
+      <footer>
+        <span class="wordmark">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6.4 12.4C5.7 10.2 6.1 7.8 7.6 5.6C7.9 6.9 8.6 7.7 9.6 8.1C9.4 5.2 10.9 2.8 12.9 0.5C12.3 3.3 14.6 4.8 15.1 7.4C15.8 6.9 16.4 6.2 16.8 5.4C18.3 7.6 18.4 10.2 17.6 12.4Z" />
+            <path d="M4.6 14.8C4.6 19 8 21.4 12 21.4C16 21.4 19.4 19 19.4 14.8C19.4 14 18.8 13.4 18 13.4H6C5.2 13.4 4.6 14 4.6 14.8Z" />
+            <path d="M11.3 21.1C11.3 22.2 11.9 23.2 13.3 23.7L13.8 22.9C12.9 22.5 12.7 21.9 12.7 21.1Z" />
+          </svg>
+          Robur Ignis
+        </span>
+        <span>robur-ignis.com</span>
+      </footer>
+    </main>
+    <script>
+      if (new URLSearchParams(location.search).get("tone") === "paper") {
+        document.documentElement.classList.add("paper");
+      }
+    </script>
+  </body>
+</html>
