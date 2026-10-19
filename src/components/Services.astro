@@ -2,7 +2,7 @@
 import { promoPrice, site } from "../config";
 
 // One offer while the practice is new: paid coaching sessions,
-// each preceded by a free intro call to check it's a fit.
+// each preceded by a free introduction session to check it's a fit.
 const topics = [
   {
     term: "Security",
@@ -70,17 +70,19 @@ const topics = [
         </p>
         {
           site.promo && (
-            <p class="note mt-1">
-              Founding client rate: {site.promo.percentOff}% off for my first{" "}
-              {site.promo.spots} clients, with code {site.promo.code}
+            <p class="note mt-1 max-w-sm">
+              Founding client rate: {site.promo.percentOff}% off your first
+              paid session (${promoPrice}), for my first {site.promo.spots}{" "}
+              clients, with code {site.promo.code}. Later sessions are
+              ${site.sessionPrice}.
             </p>
           )
         }
       </div>
       <p class="max-w-md text-ink-soft">
-        Before any paid session there's a free 30-minute call, so we can both
-        check it's a good fit. Sessions are booked one at a time, with no
-        package to buy.
+        Before any paid session there's a free 60-minute introduction
+        session, so we can both check it's a good fit. Sessions are booked
+        one at a time, with no package to buy.
       </p>
     </div>
   </div>

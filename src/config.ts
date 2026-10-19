@@ -13,7 +13,7 @@ export const site = {
   // TODO: switch to hello@robur-ignis.com once that mailbox exists.
   email: "tbfox32@gmail.com",
 
-  // Free 30-minute intro call.
+  // Free 60-minute introduction session.
   bookingUrl: "https://cal.com/tristan-barrow-37tyc2/30min",
 
   // Stripe Payment Link for a $200 coaching session. Read from STRIPE_LINK at
