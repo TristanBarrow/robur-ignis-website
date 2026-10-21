@@ -25,6 +25,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss(), presentationIndex],
   },
-  // /book-a-call/ only forwards to the booking page, so keep it out of the sitemap.
-  integrations: [sitemap({ filter: (page) => !page.endsWith("/book-a-call/") })],
+  // Short links only forward elsewhere, so keep them out of the sitemap.
+  integrations: [sitemap({ filter: (page) => !/\/(book-a-call|payments)\/$/.test(page) })],
 });

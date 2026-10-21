@@ -1,0 +1,41 @@
+---
+// Short links like /book-a-call. GitHub Pages can't send real redirects, so
+// these forward immediately with a meta refresh (Astro.redirect waits 2s) and
+// show a branded fallback in case the refresh is blocked or slow.
+import Layout from "./Layout.astro";
+import Wordmark from "../components/Wordmark.astro";
+
+interface Props {
+  to: string;
+  title: string;
+  heading: string;
+  button: string;
+}
+
+const { to, title, heading, button } = Astro.props;
+---
+
+<Layout title={title}>
+  <Fragment slot="head">
+    <meta http-equiv="refresh" content={`0;url=${to}`} />
+    <meta name="robots" content="noindex" />
+  </Fragment>
+
+  <main id="main" class="flex min-h-screen flex-col items-center justify-center px-6 text-center">
+    <a href="/" aria-label="Robur Ignis — home">
+      <Wordmark />
+    </a>
+
+    <p class="label mt-16">{title}</p>
+    <h1
+      class="mt-4 max-w-lg font-display text-[clamp(2rem,5vw,3.25rem)] font-medium leading-[1.1] tracking-[-0.015em]"
+    >
+      {heading}
+    </h1>
+    <p class="mt-5 max-w-sm text-ink-soft">
+      <slot />
+    </p>
+
+    <a href={to} class="btn mt-10">{button}</a>
+  </main>
+</Layout>
