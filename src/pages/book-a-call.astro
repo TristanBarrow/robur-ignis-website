@@ -1,0 +1,33 @@
+---
+// Short link to the booking page. GitHub Pages can't send real redirects, so
+// this forwards immediately with a meta refresh (Astro.redirect waits 2s).
+import Layout from "../layouts/Layout.astro";
+import Wordmark from "../components/Wordmark.astro";
+import { site } from "../config";
+---
+
+<Layout title="Book a call">
+  <Fragment slot="head">
+    <meta http-equiv="refresh" content={`0;url=${site.bookingUrl}`} />
+    <meta name="robots" content="noindex" />
+  </Fragment>
+
+  <main id="main" class="flex min-h-screen flex-col items-center justify-center px-6 text-center">
+    <a href="/" aria-label="Robur Ignis — home">
+      <Wordmark />
+    </a>
+
+    <p class="label mt-16">Book a call</p>
+    <h1
+      class="mt-4 max-w-lg font-display text-[clamp(2rem,5vw,3.25rem)] font-medium leading-[1.1] tracking-[-0.015em]"
+    >
+      Taking you to the calendar.
+    </h1>
+    <p class="mt-5 max-w-sm text-ink-soft">
+      Pick a time for your free 60-minute intro session. If nothing happens,
+      use the button below.
+    </p>
+
+    <a href={site.bookingUrl} class="btn mt-10">Choose a time</a>
+  </main>
+</Layout>
