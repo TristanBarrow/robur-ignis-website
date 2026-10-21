@@ -1,0 +1,52 @@
+<!doctype html>
+<!-- Email signature banner. Rendered to email-signature.png at 2x with headless Chrome:
+     "Google Chrome" --headless --hide-scrollbars --force-device-scale-factor=2 \
+       --window-size=600,150 --virtual-time-budget=5000 \
+       --screenshot=email-signature.png email-signature.html -->
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,600;1,400&family=IBM+Plex+Mono&family=Public+Sans:wght@400;600&display=block">
+<style>
+  html, body { margin: 0; }
+  body {
+    width: 600px; height: 150px; overflow: hidden;
+    background:
+      radial-gradient(circle at 30% 30%, rgb(194 58 38 / 0.16), transparent 45%),
+      linear-gradient(rgb(221 161 94 / 0.10) 1px, transparent 1px) -1px -1px / 15px 15px,
+      linear-gradient(90deg, rgb(221 161 94 / 0.10) 1px, transparent 1px) -1px -1px / 15px 15px,
+      linear-gradient(160deg, #2f3d1c, #222c14);
+    color: #fefae0;
+    display: flex; align-items: center;
+    padding: 0 32px; box-sizing: border-box;
+    position: relative;
+  }
+  /* Large faint mark bleeding off the right edge, as on the card. */
+  .ghost { position: absolute; right: -18px; bottom: -40px; width: 170px; fill: #dda15e; opacity: 0.08; }
+  .brand { flex: 1; }
+  .lockup { display: flex; align-items: center; gap: 12px; }
+  .lockup svg { width: 40px; height: 40px; fill: #dda15e; }
+  .name { font-family: Besley, serif; font-weight: 600; font-size: 34px; letter-spacing: -0.01em; line-height: 1; }
+  .tagline { margin-top: 10px; font-family: Besley, serif; font-style: italic; font-size: 17px; color: #dda15e; }
+  .meta { position: relative; border-left: 1px solid rgb(254 250 224 / 0.2); padding-left: 22px; }
+  .meta p { margin: 0; }
+  .what { font-family: "Public Sans", sans-serif; font-size: 13px; line-height: 1.45; color: rgb(254 250 224 / 0.8); max-width: 200px; }
+  .cta { margin-top: 10px !important; font-family: "Public Sans", sans-serif; font-weight: 600; font-size: 13px; color: #fefae0; }
+  .url { margin-top: 10px !important; font-family: "IBM Plex Mono", monospace; font-size: 12.5px; color: #dda15e; }
+</style>
+</head>
+<body>
+  <svg class="ghost" viewBox="0 0 24 24"><path d="M6.4 12.4C5.7 10.2 6.1 7.8 7.6 5.6C7.9 6.9 8.6 7.7 9.6 8.1C9.4 5.2 10.9 2.8 12.9 0.5C12.3 3.3 14.6 4.8 15.1 7.4C15.8 6.9 16.4 6.2 16.8 5.4C18.3 7.6 18.4 10.2 17.6 12.4Z"/><path d="M4.6 14.8C4.6 19 8 21.4 12 21.4C16 21.4 19.4 19 19.4 14.8C19.4 14 18.8 13.4 18 13.4H6C5.2 13.4 4.6 14 4.6 14.8Z"/><path d="M11.3 21.1C11.3 22.2 11.9 23.2 13.3 23.7L13.8 22.9C12.9 22.5 12.7 21.9 12.7 21.1Z"/></svg>
+  <div class="brand">
+    <div class="lockup">
+      <svg viewBox="0 0 24 24"><path d="M6.4 12.4C5.7 10.2 6.1 7.8 7.6 5.6C7.9 6.9 8.6 7.7 9.6 8.1C9.4 5.2 10.9 2.8 12.9 0.5C12.3 3.3 14.6 4.8 15.1 7.4C15.8 6.9 16.4 6.2 16.8 5.4C18.3 7.6 18.4 10.2 17.6 12.4Z"/><path d="M4.6 14.8C4.6 19 8 21.4 12 21.4C16 21.4 19.4 19 19.4 14.8C19.4 14 18.8 13.4 18 13.4H6C5.2 13.4 4.6 14 4.6 14.8Z"/><path d="M11.3 21.1C11.3 22.2 11.9 23.2 13.3 23.7L13.8 22.9C12.9 22.5 12.7 21.9 12.7 21.1Z"/></svg>
+      <span class="name">Robur Ignis</span>
+    </div>
+    <p class="tagline" style="margin-bottom:0">The strength to withstand the fire.</p>
+  </div>
+  <div class="meta">
+    <p class="what">Helping small companies get out from under technical debt.</p>
+    <p class="url">robur-ignis.com</p>
+  </div>
+</body>
+</html>
