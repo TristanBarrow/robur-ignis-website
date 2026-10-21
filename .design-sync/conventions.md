@@ -45,7 +45,7 @@ On `--color-green-deep`, set headings in `--color-paper` and paragraphs in paper
       I meet one-to-one with people who've built something with AI tools.
     </p>
     <div style={{ marginTop: 40, display: 'flex', flexWrap: 'wrap', gap: '16px 28px', alignItems: 'center' }}>
-      <a className="btn" href="https://cal.com/tristan-barrow-37tyc2/30min">Book a free 30-min call</a>
+      <a className="btn" href="https://cal.com/tristan-barrow-9wq2vs/robur-ignis-intro">Book a free 60-min intro session</a>
       <a className="link" href="#services" style={{ color: 'var(--color-ink-soft)' }}>How sessions work</a>
     </div>
   </div>

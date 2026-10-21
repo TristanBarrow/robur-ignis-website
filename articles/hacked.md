@@ -114,7 +114,7 @@ it could sink your company.
 
 If you've built something with AI and you're not sure which one you have,
 that's exactly what I help with.
-[Book a free 30-minute call](https://cal.com/tristan-barrow-37tyc2/30min) and
+[Book a free 60-minute introduction session](https://cal.com/tristan-barrow-9wq2vs/robur-ignis-intro) and
 we'll look at it together.
 
 ## Sources

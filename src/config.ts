@@ -14,7 +14,7 @@ export const site = {
   email: "tbfox32@gmail.com",
 
   // Free 60-minute introduction session.
-  bookingUrl: "https://cal.com/tristan-barrow-37tyc2/30min",
+  bookingUrl: "https://cal.com/tristan-barrow-9wq2vs/robur-ignis-intro",
 
   // Stripe Payment Link for a $200 coaching session. Read from STRIPE_LINK at
   // build time (.env locally, a repo variable in CI); the link is hidden if unset.

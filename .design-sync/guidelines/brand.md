@@ -5,8 +5,8 @@
 - First person singular. Tristan speaks as "I" to one reader as "you". Never "we" or "our team"; the practice is one person, and that is part of the offer.
   > "I meet one-to-one with people who've built something with AI tools and want it checked for security, scale and structure before it carries real users."
 - Plain and concrete. Name the real problem ("what happens when two requests arrive at once"), not the category.
-- Sentence case for every heading, button and label: "How coaching works", "Book a free 30-min call", "On the name".
-- One ask per page: the free 30-minute intro call. Button labels say what happens: "Choose a time".
+- Sentence case for every heading, button and label: "How coaching works", "Book a free 60-min intro session", "On the name".
+- One ask per page: the free 60-minute introduction session. Button labels say what happens: "Choose a time".
 - The motto: "Robur Ignis: the strength to withstand the fire." Robur is Latin for oak and strength (the root of *robust*); ignis is fire. Use it once, in a motto band with its explanation, never as a hero slogan.
 - Error pages keep the oak metaphor lightly: "This branch didn't hold."
 
