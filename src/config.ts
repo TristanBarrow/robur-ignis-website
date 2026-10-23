@@ -10,8 +10,7 @@ export const site = {
 
   url: "https://robur-ignis.com",
 
-  // TODO: switch to hello@robur-ignis.com once that mailbox exists.
-  email: "tbfox32@gmail.com",
+  email: "tristan@roburignis.com",
 
   // Free 60-minute introduction session.
   bookingUrl: "https://cal.com/tristan-barrow-9wq2vs/robur-ignis-intro",
