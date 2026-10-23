@@ -2,7 +2,9 @@
 <!-- Email signature banner. Rendered to email-signature.png at 2x with headless Chrome:
      "Google Chrome" --headless --hide-scrollbars --force-device-scale-factor=2 \
        --window-size=600,150 --virtual-time-budget=5000 \
-       --screenshot=email-signature.png email-signature.html -->
+       --screenshot=email-signature.png email-signature.html
+     Lightweight email version (~26 KB): same command at --force-device-scale-factor=1,
+     then: sips -s format jpeg -s formatOptions 75 <1x.png> --out email-signature-small.jpg -->
 <html>
 <head>
 <meta charset="utf-8">
