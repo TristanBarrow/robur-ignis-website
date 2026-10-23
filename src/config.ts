@@ -6,7 +6,7 @@ export const site = {
   name: "Robur Ignis",
   tagline: "The strength to withstand the fire.",
   description:
-    "One-to-one coaching from an engineer with ten years of experience, for people building software with AI. Security, scalability and architecture, in focused one-hour sessions.",
+    "Coaching from an engineer with ten years of experience, for companies building software with AI. Spec-based harnesses, code visualization and practical AI workflows, in focused one-hour sessions.",
 
   url: "https://robur-ignis.com",
 
