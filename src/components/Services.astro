@@ -1,8 +1,4 @@
 ---
-import { promoPrice, site } from "../config";
-
-// One offer while the practice is new: paid coaching sessions,
-// each preceded by a free introduction session to check it's a fit.
 const topics = [
   {
     term: "Spec-based harnesses",
@@ -29,12 +25,10 @@ const topics = [
       <h2
         class="font-display text-[clamp(1.9rem,3.6vw,2.75rem)] font-medium leading-[1.12] tracking-[-0.015em]"
       >
-        How coaching works
+        What I help with
       </h2>
       <p class="mt-6 text-lg leading-relaxed text-ink-soft">
-        Each session is an hour, on a video call or in person, just you and me.
-        You bring the
-        codebase and a question, such as why your agents' output is
+        You bring the codebase and a question, such as why your agents' output is
         inconsistent, how to review what they produce, or which workflow is
         worth adopting. We work through it on your code.
       </p>
@@ -50,40 +44,5 @@ const topics = [
         ))
       }
     </dl>
-
-    <!-- Terms as a single ruled line, like the bottom of an invoice. -->
-    <div
-      class="mt-10 flex flex-col gap-3 border-y-2 border-ink py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
-    >
-      <div class="shrink-0">
-        <p class="font-display text-2xl font-medium">
-          {
-            site.promo ? (
-              <>
-                <s class="font-normal text-ink-faint">${site.sessionPrice}</s> ${promoPrice}
-              </>
-            ) : (
-              <>${site.sessionPrice}</>
-            )
-          }{" "}
-          <span class="text-lg font-normal text-ink-soft">per one-hour session</span>
-        </p>
-        {
-          site.promo && (
-            <p class="note mt-1 max-w-sm">
-              Founding client rate: {site.promo.percentOff}% off your first
-              paid session (${promoPrice}), for my first {site.promo.spots}{" "}
-              clients, with code {site.promo.code}. Later sessions are
-              ${site.sessionPrice}.
-            </p>
-          )
-        }
-      </div>
-      <p class="max-w-md text-ink-soft">
-        Before any paid session there's a free 60-minute introduction
-        session, so we can both check it's a good fit. Sessions are booked
-        one at a time, with no package to buy.
-      </p>
-    </div>
   </div>
 </section>

@@ -26,5 +26,5 @@ export default defineConfig({
     plugins: [tailwindcss(), presentationIndex],
   },
   // Short links only forward elsewhere, so keep them out of the sitemap.
-  integrations: [sitemap({ filter: (page) => !/\/(book-a-call|payments)\/$/.test(page) })],
+  integrations: [sitemap({ filter: (page) => !/\/book-a-call\/$/.test(page) })],
 });

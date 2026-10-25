@@ -14,14 +14,12 @@ Static marketing site. Astro + Tailwind v4, zero client-side framework.
 
 Everything you need to change is flagged `TODO` in the source. In order of importance:
 
-1. **`src/config.ts`** — `calendlyUrl`, `stripePaymentLink`, `email`, `url`.
+1. **`src/config.ts`** — `calendlyUrl`, `email`, `url`.
 2. **`astro.config.mjs`** — `site` must be your real domain, or canonical
    URLs and the sitemap will point at the wrong place.
 3. **`src/components/About.astro`** — replace the founder bio. This paragraph
    does most of the selling; specifics (systems, scale, years) beat adjectives.
-4. **`src/components/Services.astro`** — set the real price on the Technical
-   Review tier and the Stripe price ID.
-5. **`public/robots.txt`** — update the sitemap domain.
+4. **`public/robots.txt`** — update the sitemap domain.
 
 ## Wiring up Calendly
 
@@ -31,20 +29,6 @@ done — every CTA on the page already points at it.
 For an inline embed instead, add Calendly's widget script to
 `src/components/CallToAction.astro` and swap the anchor for their
 `calendly-inline-widget` div. The commented block in that file marks the spot.
-
-## Wiring up Stripe
-
-The Technical Review tier is the buy-now product. Easiest approach that needs
-no backend — which matters on static hosting:
-
-1. Create a **Payment Link** in the Stripe dashboard.
-2. Paste it into `stripePaymentLink` in `src/config.ts`.
-
-That's it. Stripe hosts the checkout page, so nothing server-side is required.
-If you later want Checkout Sessions with custom metadata, you'll need a small
-serverless endpoint — which Namecheap shared hosting won't run, so that would
-mean moving the site to Cloudflare Pages or Netlify, or hosting just the
-endpoint elsewhere.
 
 ## Deploying to Namecheap
 

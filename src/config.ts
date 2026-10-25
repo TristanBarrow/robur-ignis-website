@@ -6,7 +6,7 @@ export const site = {
   name: "Robur Ignis",
   tagline: "The strength to withstand the fire.",
   description:
-    "Coaching from an engineer with ten years of experience, for companies building software with AI. Spec-based harnesses, code visualization and practical AI workflows, in focused one-hour sessions.",
+    "Help from an engineer with ten years of experience, for companies building software with AI. Spec-based harnesses, code visualization and practical AI workflows.",
 
   url: "https://robur-ignis.com",
 
@@ -15,31 +15,13 @@ export const site = {
   // Free 60-minute introduction session.
   bookingUrl: "https://cal.com/tristan-barrow-9wq2vs/robur-ignis-intro",
 
-  // Stripe Payment Link for a $200 coaching session. Read from STRIPE_LINK at
-  // build time (.env locally, a repo variable in CI); the link is hidden if unset.
-  stripePaymentLink: import.meta.env.STRIPE_LINK as string | undefined,
-
   // Cloudflare Web Analytics beacon token. Read from CF_ANALYTICS_TOKEN at build
   // time (.env locally, a repo variable in CI); no tracking script if unset.
   analyticsToken: import.meta.env.CF_ANALYTICS_TOKEN as string | undefined,
-
-  sessionPrice: 200,
-
-  // Founding client discount: a Stripe promotion code for the first few clients,
-  // shown beside the price. Set to undefined when the spots are taken and the
-  // site goes back to showing the full price only.
-  promo: { code: "OAKFIRE", percentOff: 50, spots: 5 } as
-    | { code: string; percentOff: number; spots: number }
-    | undefined,
 };
 
-export const promoPrice = site.promo
-  ? Math.round(site.sessionPrice * (1 - site.promo.percentOff / 100))
-  : undefined;
-
 export const nav = [
-  { label: "Coaching", href: "/#services" },
+  { label: "Services", href: "/#services" },
   { label: "About", href: "/#about" },
   { label: "Articles", href: "/articles/" },
-  ...(site.stripePaymentLink ? [{ label: "Payments", href: site.stripePaymentLink }] : []),
 ];

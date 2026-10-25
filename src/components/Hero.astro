@@ -1,20 +1,13 @@
 ---
 import { Image } from "astro:assets";
 import portrait from "../assets/tristanbarrow.jpg";
-import { promoPrice, site } from "../config";
+import { site } from "../config";
 ---
 
 <section id="top" class="grid-paper pb-20 pt-14 lg:pb-28 lg:pt-20">
   <div class="mx-auto max-w-6xl px-6 lg:px-8">
     <div class="grid gap-12 lg:grid-cols-[1fr_20rem] lg:gap-20">
       <div>
-        {
-          site.promo && (
-            <p class="label mb-6 text-green">
-              Founding client rate: ${promoPrice} for your first paid session, for my first {site.promo.spots} clients, code {site.promo.code}
-            </p>
-          )
-        }
         <h1
           class="max-w-3xl font-display text-[clamp(2.2rem,4.8vw,3.75rem)] font-medium leading-[1.08] tracking-[-0.02em] text-ink"
         >
@@ -31,7 +24,7 @@ import { promoPrice, site } from "../config";
 
         <div class="mt-10 flex flex-wrap items-center gap-x-7 gap-y-4">
           <a href={site.bookingUrl} class="btn">Book a free 60-min intro session</a>
-          <a href="#services" class="link text-green">How sessions work</a>
+          <a href="#services" class="link text-green">What I help with</a>
         </div>
       </div>
 
