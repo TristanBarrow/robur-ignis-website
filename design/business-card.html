@@ -1,0 +1,105 @@
+<!doctype html>
+<!-- Business card, US standard 3.5 x 2 in, laid out with a 0.125 in bleed (3.75 x 2.25 in).
+     Same ground as the debit card: green gradient, tan grid, ember glow, ghost flame nut.
+     Print-ready two-page PDF (front, back):
+       "Google Chrome" --headless --no-pdf-header-footer --virtual-time-budget=5000 \
+         --print-to-pdf=business-card.pdf business-card.html
+     PNG previews at 300 dpi (1125 x 675 incl. bleed):
+       "Google Chrome" --headless --hide-scrollbars --force-device-scale-factor=3.125 \
+         --window-size=360,216 --virtual-time-budget=5000 \
+         --screenshot=business-card-front.png "business-card.html#front"
+       (and #back for business-card-back.png) -->
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,600;1,400&family=IBM+Plex+Mono&family=Public+Sans:wght@400;600&display=block">
+<style>
+  @page { size: 3.75in 2.25in; margin: 0; }
+  html, body { margin: 0; background: #222c14; }
+  .side {
+    width: 3.75in; height: 2.25in; overflow: hidden;
+    position: relative; box-sizing: border-box;
+    /* Bleed 0.125in + safe zone 0.125in. */
+    padding: 0.25in 0.3in;
+    color: #fefae0;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    break-after: page;
+    background:
+      radial-gradient(circle at 62% 30%, rgb(194 58 38 / 0.18), transparent 38%),
+      linear-gradient(rgb(221 161 94 / 0.12) 1px, transparent 1px) -1px -1px / 11px 11px,
+      linear-gradient(90deg, rgb(221 161 94 / 0.12) 1px, transparent 1px) -1px -1px / 11px 11px,
+      linear-gradient(160deg, #2f3d1c, #222c14);
+  }
+  .side:last-child { break-after: auto; }
+  /* For screenshots: show only the side named in the hash. */
+  body.only-front .back, body.only-back .front { display: none; }
+
+  .ghost { position: absolute; right: -14px; bottom: -26px; width: 132px; fill: #dda15e; opacity: 0.09; }
+  .mark { fill: #dda15e; }
+
+  /* Front: the card's lockup, tagline and what I do. */
+  .front { display: flex; flex-direction: column; justify-content: center; }
+  .lockup { display: flex; align-items: center; gap: 9px; position: relative; }
+  .lockup .mark { width: 24px; height: 24px; }
+  .name { font-family: Besley, serif; font-weight: 600; font-size: 23px; letter-spacing: -0.01em; line-height: 1; }
+  .tagline { position: relative; margin: 7px 0 0; font-family: Besley, serif; font-style: italic; font-size: 12px; color: #dda15e; }
+  .blurb { position: relative; margin: 11px 0 0; max-width: 2.55in; font-family: "Public Sans", sans-serif; font-size: 8.5px; line-height: 1.5; color: rgb(254 250 224 / 0.85); }
+
+  /* Back: who, the method, and how to reach. */
+  .back { display: flex; flex-direction: column; justify-content: space-between; }
+  .back .ghost { right: auto; left: auto; right: -14px; }
+  .person { position: relative; }
+  .person h1 { margin: 0; font-family: Besley, serif; font-weight: 600; font-size: 20px; letter-spacing: -0.01em; line-height: 1.1; }
+  .person p { margin: 5px 0 0; font-family: "IBM Plex Mono", monospace; font-size: 8px; letter-spacing: 0.08em; text-transform: uppercase; color: rgb(254 250 224 / 0.65); }
+  .steps { position: relative; display: flex; flex-direction: column; gap: 4px; margin: 0; padding: 0; list-style: none; }
+  .steps li { font-family: Besley, serif; font-weight: 600; font-size: 11px; line-height: 1.2; }
+  .steps span { display: inline-block; width: 18px; font-family: "IBM Plex Mono", monospace; font-weight: 400; font-size: 7.5px; letter-spacing: 0.08em; color: #dda15e; }
+  .contact { position: relative; border-top: 1px solid rgb(254 250 224 / 0.2); padding-top: 9px; }
+  .contact p { margin: 0; font-family: "IBM Plex Mono", monospace; font-size: 9.5px; line-height: 1.7; color: #dda15e; }
+  .small-lockup { position: absolute; top: 0.25in; right: 0.3in; display: flex; align-items: center; gap: 5px; }
+  .small-lockup .mark { width: 14px; height: 14px; }
+  .small-lockup span { font-family: Besley, serif; font-weight: 600; font-size: 11px; letter-spacing: -0.01em; }
+</style>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute">
+    <symbol id="flame-nut" viewBox="0 0 24 24"><path d="M6.4 12.4C5.7 10.2 6.1 7.8 7.6 5.6C7.9 6.9 8.6 7.7 9.6 8.1C9.4 5.2 10.9 2.8 12.9 0.5C12.3 3.3 14.6 4.8 15.1 7.4C15.8 6.9 16.4 6.2 16.8 5.4C18.3 7.6 18.4 10.2 17.6 12.4Z"/><path d="M4.6 14.8C4.6 19 8 21.4 12 21.4C16 21.4 19.4 19 19.4 14.8C19.4 14 18.8 13.4 18 13.4H6C5.2 13.4 4.6 14 4.6 14.8Z"/><path d="M11.3 21.1C11.3 22.2 11.9 23.2 13.3 23.7L13.8 22.9C12.9 22.5 12.7 21.9 12.7 21.1Z"/></symbol>
+  </svg>
+
+  <section class="side front">
+    <svg class="ghost"><use href="#flame-nut"/></svg>
+    <div class="lockup">
+      <svg class="mark"><use href="#flame-nut"/></svg>
+      <span class="name">Robur Ignis</span>
+    </div>
+    <p class="tagline">Ship fast. Don't break things.</p>
+    <p class="blurb">If you are shipping slow or breaking things, I can help. I'll measure where you're at with research-backed metrics, diagnose the issue, and help you implement a fix, then remeasure to make sure you're improving.</p>
+  </section>
+
+  <section class="side back">
+    <svg class="ghost"><use href="#flame-nut"/></svg>
+    <div class="small-lockup">
+      <svg class="mark"><use href="#flame-nut"/></svg>
+      <span>Robur Ignis</span>
+    </div>
+    <div class="person">
+      <h1>Tristan Barrow</h1>
+      <p>Software engineer</p>
+    </div>
+    <ol class="steps">
+      <li><span>01</span>Measure and understand</li>
+      <li><span>02</span>Iterate</li>
+      <li><span>03</span>Repeat</li>
+    </ol>
+    <div class="contact">
+      <p>tristan@roburignis.com</p>
+      <p>https://robur-ignis.com</p>
+    </div>
+  </section>
+
+  <script>
+    const side = location.hash.slice(1);
+    if (side === "front" || side === "back") document.body.classList.add("only-" + side);
+  </script>
+</body>
+</html>
