@@ -5,8 +5,14 @@
 export const site = {
   name: "Robur Ignis",
   tagline: "The strength to withstand the fire.",
+  // What the homepage is about in the words people search with; used as its <title>.
+  homeTitle: "AI Software Development Coaching & Consulting",
   description:
-    "Help from an engineer with ten years of experience, for companies building software with AI. Spec-based harnesses, code visualization and practical AI workflows.",
+    "Coaching and consulting from Tristan Barrow for teams building software with AI: spec-based harnesses, code visualization and practical AI workflows.",
+  // Share image used when a page doesn't set its own (1200×630, under public/).
+  defaultImage: "/og/default.png",
+  logo: "/favicon.svg",
+  founder: "Tristan Barrow",
 
   url: "https://robur-ignis.com",
 

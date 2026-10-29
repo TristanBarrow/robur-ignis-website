@@ -8,21 +8,55 @@ interface Props {
   type?: "website" | "article";
   // Share image path under public/, 1200×630.
   image?: string;
+  // Extra schema.org objects for this page (e.g. an article's BlogPosting).
+  schema?: Record<string, unknown>[];
 }
 
-const { title, description = site.description, type = "website", image } = Astro.props;
-const pageTitle = title ? `${title} — ${site.name}` : `${site.name} — ${site.tagline}`;
+const {
+  title,
+  description = site.description,
+  type = "website",
+  image = site.defaultImage,
+  schema = [],
+} = Astro.props;
+const pageTitle = `${title ?? site.homeTitle} — ${site.name}`;
 const canonical = new URL(Astro.url.pathname, site.url).href;
 const imageUrl = image ? new URL(image, site.url).href : undefined;
 
+const orgId = `${site.url}/#organization`;
+const personId = `${site.url}/#tristan-barrow`;
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: site.name,
-  url: site.url,
-  description: site.description,
-  email: site.email,
-  slogan: site.tagline,
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": orgId,
+      name: site.name,
+      url: site.url,
+      description: site.description,
+      email: site.email,
+      slogan: site.tagline,
+      logo: new URL(site.logo, site.url).href,
+      image: new URL(site.defaultImage, site.url).href,
+      founder: { "@id": personId },
+    },
+    {
+      "@type": "Person",
+      "@id": personId,
+      name: site.founder,
+      jobTitle: "Software engineer",
+      url: `${site.url}/#about`,
+      worksFor: { "@id": orgId },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${site.url}/#website`,
+      name: site.name,
+      url: site.url,
+      publisher: { "@id": orgId },
+    },
+    ...schema,
+  ],
 };
 ---
 
@@ -41,6 +75,7 @@ const jsonLd = {
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={site.name} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:locale" content="en_US" />
     {
       imageUrl && (
         <>
