@@ -37,13 +37,15 @@
   .ghost { position: absolute; right: -14px; bottom: -26px; width: 132px; fill: #dda15e; opacity: 0.09; }
   .mark { fill: #dda15e; }
 
-  /* Front: the card's lockup, tagline and what I do. */
+  /* Front: the card's lockup, the promise on one line, and what I do. */
   .front { display: flex; flex-direction: column; justify-content: center; }
   .lockup { display: flex; align-items: center; gap: 9px; position: relative; }
   .lockup .mark { width: 24px; height: 24px; }
   .name { font-family: Besley, serif; font-weight: 600; font-size: 23px; letter-spacing: -0.01em; line-height: 1; }
-  .tagline { position: relative; margin: 7px 0 0; font-family: Besley, serif; font-style: italic; font-size: 12px; color: #dda15e; }
-  .blurb { position: relative; margin: 11px 0 0; max-width: 2.55in; font-family: "Public Sans", sans-serif; font-size: 8.5px; line-height: 1.5; color: rgb(254 250 224 / 0.85); }
+  .promise { position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 0 8px; margin: 9px 0 0; padding: 0; list-style: none; }
+  .promise li { display: flex; align-items: center; gap: 8px; font-family: Besley, serif; font-style: italic; font-size: 12px; color: #dda15e; }
+  .promise li + li::before { content: ""; width: 3.5px; height: 3.5px; background: rgb(254 250 224 / 0.55); transform: rotate(45deg); flex: none; }
+  .blurb { position: relative; margin: 11px 0 0; max-width: 2.6in; text-wrap: pretty; font-family: "Public Sans", sans-serif; font-size: 8.5px; line-height: 1.5; color: rgb(254 250 224 / 0.85); }
 
   /* Back: who, the method, and how to reach. */
   .back { display: flex; flex-direction: column; justify-content: space-between; }
@@ -51,11 +53,11 @@
   .person { position: relative; }
   .person h1 { margin: 0; font-family: Besley, serif; font-weight: 600; font-size: 20px; letter-spacing: -0.01em; line-height: 1.1; }
   .person p { margin: 5px 0 0; font-family: "IBM Plex Mono", monospace; font-size: 8px; letter-spacing: 0.08em; text-transform: uppercase; color: rgb(254 250 224 / 0.65); }
-  .steps { position: relative; display: flex; flex-direction: column; gap: 4px; margin: 0; padding: 0; list-style: none; }
+  .steps { position: relative; display: flex; flex-direction: column; gap: 1px; margin: 0; padding: 0; list-style: none; }
   .steps li { font-family: Besley, serif; font-weight: 600; font-size: 11px; line-height: 1.2; }
   .steps span { display: inline-block; width: 18px; font-family: "IBM Plex Mono", monospace; font-weight: 400; font-size: 7.5px; letter-spacing: 0.08em; color: #dda15e; }
-  .contact { position: relative; border-top: 1px solid rgb(254 250 224 / 0.2); padding-top: 9px; }
-  .contact p { margin: 0; font-family: "IBM Plex Mono", monospace; font-size: 9.5px; line-height: 1.7; color: #dda15e; }
+  .contact { position: relative; border-top: 1px solid rgb(254 250 224 / 0.2); padding-top: 6px; }
+  .contact p { margin: 0; font-family: "IBM Plex Mono", monospace; font-size: 9px; line-height: 1.55; color: #dda15e; }
   .small-lockup { position: absolute; top: 0.25in; right: 0.3in; display: flex; align-items: center; gap: 5px; }
   .small-lockup .mark { width: 14px; height: 14px; }
   .small-lockup span { font-family: Besley, serif; font-weight: 600; font-size: 11px; letter-spacing: -0.01em; }
@@ -72,8 +74,12 @@
       <svg class="mark"><use href="#flame-nut"/></svg>
       <span class="name">Robur Ignis</span>
     </div>
-    <p class="tagline">Ship fast. Don't break things.</p>
-    <p class="blurb">If you are shipping slow or breaking things, I can help. I'll measure where you're at with research-backed metrics, diagnose the issue, and help you implement a fix, then remeasure to make sure you're improving.</p>
+    <ul class="promise">
+      <li>Ship fast</li>
+      <li>Don't break things</li>
+      <li>Make it count</li>
+    </ul>
+    <p class="blurb">If your team is shipping slowly or breaking things, I can help. We'll measure where you are with DORA metrics, find what's holding you back, fix it together, then measure again to make sure it's working and moving your business forward.</p>
   </section>
 
   <section class="side back">
@@ -84,16 +90,17 @@
     </div>
     <div class="person">
       <h1>Tristan Barrow</h1>
-      <p>Software engineer</p>
     </div>
     <ol class="steps">
-      <li><span>01</span>Measure and understand</li>
-      <li><span>02</span>Iterate</li>
-      <li><span>03</span>Repeat</li>
+      <li><span>01</span>Measure.</li>
+      <li><span>02</span>Diagnose.</li>
+      <li><span>03</span>Fix.</li>
+      <li><span>04</span>Repeat.</li>
     </ol>
     <div class="contact">
+      <p>(425) 420-8903</p>
       <p>tristan@roburignis.com</p>
-      <p>https://robur-ignis.com</p>
+      <p>robur-ignis.com</p>
     </div>
   </section>
 
