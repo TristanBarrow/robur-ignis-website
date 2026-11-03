@@ -18,7 +18,7 @@ export const site = {
 
   email: "tristan@roburignis.com",
 
-  // Free 60-minute introduction session.
+  // Free 60-minute consultation.
   bookingUrl: "https://cal.com/tristan-barrow-9wq2vs/robur-ignis-intro",
 
   // Cloudflare Web Analytics beacon token. Read from CF_ANALYTICS_TOKEN at build
