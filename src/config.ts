@@ -6,9 +6,9 @@ export const site = {
   name: "Robur Ignis",
   tagline: "The strength to withstand the fire.",
   // What the homepage is about in the words people search with; used as its <title>.
-  homeTitle: "AI Software Development Coaching & Consulting",
+  homeTitle: "DORA Metrics & Software Delivery Consulting",
   description:
-    "Coaching and consulting from Tristan Barrow for teams building software with AI: spec-based harnesses, code visualization and practical AI workflows.",
+    "Tristan Barrow helps software teams ship faster without breaking things, using DORA metrics to find the bottleneck, fix it and prove it worked.",
   // Share image used when a page doesn't set its own (1200×630, under public/).
   defaultImage: "/og/default.png",
   logo: "/favicon.svg",
@@ -27,7 +27,7 @@ export const site = {
 };
 
 export const nav = [
-  { label: "Services", href: "/#services" },
+  { label: "How it works", href: "/#services" },
   { label: "About", href: "/#about" },
   { label: "Articles", href: "/articles/" },
 ];

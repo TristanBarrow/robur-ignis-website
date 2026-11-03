@@ -1,20 +1,25 @@
 ---
-const topics = [
+// The loop from the business card, one step per term.
+const steps = [
   {
-    term: "Spec-based harnesses",
-    detail: "Deterministic specs and checks that keep agents on track and make their output repeatable.",
+    term: "Measure",
+    detail:
+      "Four DORA metrics cover speed and stability, and product owner task cycle time shows whether the work moves the business. Measuring and regularly tracking these five will help us determine success.",
   },
   {
-    term: "Code visualization",
-    detail: "Understand what the AI built without reading every line.",
+    term: "Diagnose",
+    detail:
+    "Now that we can see our problem in the numbers, it's time to find the bottleneck keeping us there.",
   },
   {
-    term: "Practical vs. hype",
-    detail: "Which harnesses, software factories and multi-agent workflows pay off today, and which can wait.",
+    term: "Fix",
+    detail:
+      "Next, we'll work together to implement the solution.",
   },
   {
-    term: "Stability",
-    detail: "Time-tested, research-based practices for efficiency and stability, adapted to AI development.",
+    term: "Repeat",
+    detail:
+    "Problem solving is a process of iteration. We'll remeasure to see how well our solution worked and course-correct if we need to.",
   },
 ];
 ---
@@ -25,21 +30,25 @@ const topics = [
       <h2
         class="font-display text-[clamp(1.9rem,3.6vw,2.75rem)] font-medium leading-[1.12] tracking-[-0.015em]"
       >
-        What I help with
+        How it works
       </h2>
-      <p class="mt-6 text-lg leading-relaxed text-ink-soft">
-        You bring the codebase and a question, such as why your agents' output is
-        inconsistent, how to review what they produce, or which workflow is
-        worth adopting. We work through it on your code.
+        <p class="mt-6 text-lg leading-relaxed text-ink-soft">
+        We start with the gold standard for determining development team productivity. 
+        How fast is my team going?
+        How much time does my software spend out of order?
+        Is the work my dev team is doing moving the business forward?
       </p>
     </div>
 
     <dl class="mt-14 grid gap-x-12 sm:grid-cols-2">
       {
-        topics.map((t) => (
+        steps.map((s, i) => (
           <div class="border-t border-green py-5">
-            <dt class="font-display text-xl font-medium text-green">{t.term}</dt>
-            <dd class="mt-2 max-w-md leading-relaxed text-ink-soft">{t.detail}</dd>
+            <dt class="flex items-baseline gap-3 font-display text-xl font-medium text-green">
+              <span class="label">{String(i + 1).padStart(2, "0")}</span>
+              {s.term}
+            </dt>
+            <dd class="mt-2 max-w-md leading-relaxed text-ink-soft">{s.detail}</dd>
           </div>
         ))
       }

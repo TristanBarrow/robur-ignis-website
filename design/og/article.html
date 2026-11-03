@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
   Share image template for articles (1200×630, the size LinkedIn and others use).
-  Title and subtitle come from the query string, e.g.
+  Title, subtitle and label (default "Article") come from the query string, e.g.
     article.html?title=Hacked&subtitle=How%20AI%20changed%20security...
   Render with headless Chrome, saving to public/og/<article>.png:
     "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
@@ -110,7 +110,7 @@
       Robur Ignis
     </div>
     <main>
-      <p class="label">Article</p>
+      <p class="label" id="label">Article</p>
       <h1 id="title"></h1>
       <p class="subtitle" id="subtitle"></p>
     </main>
@@ -122,6 +122,7 @@
       const params = new URLSearchParams(location.search);
       document.getElementById("title").textContent = params.get("title") ?? "Title";
       document.getElementById("subtitle").textContent = params.get("subtitle") ?? "";
+      document.getElementById("label").textContent = params.get("label") ?? "Article";
     </script>
   </body>
 </html>
