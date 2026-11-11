@@ -4,7 +4,8 @@
 //
 // The deck is rendered in the browser by the script below, not by Astro's
 // Markdown pipeline, so slides stay "---"-separated plain text and the layout
-// rules (statement slide, photo slide, stage tracker) live in one place.
+// rules (statement slide, photo slide, stage tracker, reveal steps) live in
+// one place.
 import { getCollection } from "astro:content";
 import { site } from "../../config";
 
@@ -97,6 +98,20 @@ const canonical = new URL(`/pres/${deck.id}/`, site.url).href;
     overflow: hidden;
   }
   .slide.active { display: flex; }
+
+  /* Reveal steps within a slide, split by a "--" line. The wrapper is
+     display: contents so a step's content stays a direct child of the slide's
+     flex column; display: none on a pending step still hides the subtree. */
+  .slide .step { display: contents; }
+  .slide .step.pending, .slide .step.pending > * { display: none; }
+  .slide .step.revealing > * { animation: step-in 0.25s ease both; }
+  @keyframes step-in {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .slide .step.revealing > * { animation: none; }
+  }
 
   /* Fullscreen: slide fills the screen, no frame */
   :fullscreen body { background: var(--paper); }
@@ -359,11 +374,15 @@ const canonical = new URL(`/pres/${deck.id}/`, site.url).href;
       notes.push(note.trim());
       const n = body.match(/^###\s+Stage\s+(\d+)\s*$/m);
       const s = document.createElement('section');
-      const first = body.replace(/<!--[\s\S]*?-->/g, '').trim();
+      // Everything up to the first "--" is on screen when the slide opens;
+      // each later step is revealed by one press or click.
+      const steps = body.split(/^--\s*$/m);
+      const first = steps[0].replace(/<!--[\s\S]*?-->/g, '').trim();
       s.className = 'slide'
         + (/^#\s/.test(first) ? ' statement' : '')
         + (IMAGE.test(first) ? ' photo' : '');
-      s.innerHTML = (n ? tracker(+n[1]) : '') + render(body.trim())
+      s.innerHTML = (n ? tracker(+n[1]) : '')
+        + steps.map(step => `<div class="step">${render(step.trim())}</div>`).join('')
         + `<div class="footer"><span class="wordmark">${FLAME}Robur Ignis</span><span>${String(i + 1).padStart(2, '0')} / ${String(chunks.length).padStart(2, '0')}</span></div>`;
       stage.appendChild(s);
       return s;
@@ -371,12 +390,35 @@ const canonical = new URL(`/pres/${deck.id}/`, site.url).href;
     show(current);
   }
 
-  function show(i) {
+  // Arriving forwards shows only the first step; arriving backwards shows the
+  // whole slide, so stepping back past a reveal doesn't replay it.
+  function show(i, revealAll) {
     current = Math.min(Math.max(i, 0), slides.length - 1);
+    slides[current].querySelectorAll('.step').forEach((step, j) => {
+      step.classList.toggle('pending', !revealAll && j > 0);
+      step.classList.remove('revealing');
+    });
     slides.forEach((s, j) => s.classList.toggle('active', j === current));
     progress.style.width = `${((current + 1) / slides.length) * 100}%`;
     notesEl.textContent = notes[current] || '(no notes)';
     history.replaceState(null, '', `#${current + 1}`);
+  }
+
+  function next() {
+    const pending = slides[current].querySelector('.step.pending');
+    if (pending) {
+      pending.classList.remove('pending');
+      pending.classList.add('revealing');
+    } else if (current < slides.length - 1) show(current + 1);
+  }
+
+  function prev() {
+    const shown = slides[current].querySelectorAll('.step:not(.pending)');
+    if (shown.length > 1) {
+      const last = shown[shown.length - 1];
+      last.classList.add('pending');
+      last.classList.remove('revealing');
+    } else if (current > 0) show(current - 1, true);
   }
 
   function fit() {
@@ -385,8 +427,8 @@ const canonical = new URL(`/pres/${deck.id}/`, site.url).href;
   }
 
   document.addEventListener('keydown', e => {
-    if (['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'].includes(e.key)) show(current + 1);
-    else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(e.key)) show(current - 1);
+    if (['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'].includes(e.key)) next();
+    else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(e.key)) prev();
     else if (e.key === 'Home') show(0);
     else if (e.key === 'End') show(slides.length - 1);
     else if (e.key === 'n') document.body.classList.toggle('show-notes');
@@ -395,7 +437,7 @@ const canonical = new URL(`/pres/${deck.id}/`, site.url).href;
     e.preventDefault();
   });
 
-  stage.addEventListener('click', e => show(current + (e.clientX > innerWidth / 3 ? 1 : -1)));
+  stage.addEventListener('click', e => (e.clientX > innerWidth / 3 ? next() : prev()));
 
   addEventListener('resize', fit);
   document.addEventListener('fullscreenchange', fit);

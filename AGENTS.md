@@ -20,3 +20,9 @@ Consult these guides before working on related tasks:
 - [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
 - [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
 - [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+
+## Working style
+
+Don't verify work I haven't asked you to verify. Make the change and stop —
+no screenshots, headless-browser runs, or simulation scripts unless I ask.
+When I ask a question, answer it; don't keep investigating.
