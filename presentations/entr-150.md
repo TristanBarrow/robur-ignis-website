@@ -1,3 +1,8 @@
+---
+title: How do you make money in a silver rush?
+description: ENTR 150 — picks and shovels for the people building businesses with AI.
+---
+
 # How do you make money in a silver rush?
 
 Note:
@@ -5,7 +10,7 @@ Open with the question. Pause and let the room think before moving on.
 
 ---
 
-![Samuel Moore Barrow](Samuel%20Moore%20Barrow.jpg "Tombstone, Arizona")
+![Samuel Moore Barrow](/pres/entr-150/samuel-moore-barrow.jpg "Tombstone, Arizona")
 
 Note:
 Answer the question with the family story: you sell picks and shovels.
@@ -124,6 +129,6 @@ This closes the loop: the platform feeds new clients back into coaching.
 
 ---
 
-![](shadow.jpeg)
+![](/pres/entr-150/shadow.jpeg)
 
 Note:

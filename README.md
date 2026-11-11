@@ -59,6 +59,10 @@ src/
   components/            One file per page section
   pages/index.astro      Section order
   pages/404.astro
+  pages/pres/[deck].astro  The slide-deck player
+articles/                One Markdown file per article
+testimonials/            One Markdown file per client quote
+presentations/           One Markdown file per slide deck → /pres/<name>/#<slide>
 public/                  Copied verbatim to dist/ (.htaccess, favicon, robots)
 ```
 

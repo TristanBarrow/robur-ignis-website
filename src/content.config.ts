@@ -33,4 +33,18 @@ const testimonials = defineCollection({
   }),
 });
 
-export const collections = { articles, testimonials };
+// Slide decks live in /presentations, one Markdown file each. The file name
+// becomes the URL: presentations/entr-150.md → /pres/entr-150/, and the hash is
+// the slide number: /pres/entr-150/#4. Slides are separated by a "---" line and
+// rendered in the browser by src/pages/pres/[deck].astro, so only this
+// frontmatter is read here — the body is passed through as plain text.
+const presentations = defineCollection({
+  loader: glob({ base: "./presentations", pattern: ["**/*.md", "!README.md"] }),
+  schema: z.object({
+    // The browser tab's title while presenting.
+    title: z.string(),
+    description: z.string().optional(),
+  }),
+});
+
+export const collections = { articles, testimonials, presentations };
