@@ -1,0 +1,48 @@
+---
+// Lists every deck in /presentations, linking to /pres/<name>/.
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+const decks = (await getCollection("presentations")).sort((a, b) =>
+  a.data.title.localeCompare(b.data.title),
+);
+---
+
+<Layout title="Presentations" description="Slide decks from talks and workshops.">
+  <!-- Full-height column so the footer sits at the bottom while the list is short. -->
+  <div class="flex min-h-screen flex-col">
+    <Nav />
+    <main id="main" class="flex-1">
+      <section class="mx-auto max-w-2xl px-6 pb-20 pt-14 lg:px-8 lg:pb-28 lg:pt-20">
+        <h1
+          class="font-display text-[clamp(2.2rem,4.8vw,3.25rem)] font-medium leading-[1.08] tracking-[-0.02em]"
+        >
+          Presentations
+        </h1>
+        <p class="mt-5 text-lg leading-relaxed text-ink-soft">
+          Slide decks from talks and workshops.
+        </p>
+
+        <ul class="mt-12">
+          {
+            decks.map((deck) => (
+              <li class="border-t border-green py-6">
+                <h2 class="font-display text-2xl font-medium">
+                  <a href={`/pres/${deck.id}/`} class="link">
+                    {deck.data.title}
+                  </a>
+                </h2>
+                {deck.data.description && (
+                  <p class="mt-2 leading-relaxed text-ink-soft">{deck.data.description}</p>
+                )}
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </main>
+    <Footer />
+  </div>
+</Layout>
